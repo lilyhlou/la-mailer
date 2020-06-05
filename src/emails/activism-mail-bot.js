@@ -2,7 +2,13 @@ function buildEmail({ name }) {
   return {
     title: "Defund LAPD Template",
     subject: "Defund LAPD",
-    body: "test -- here would be a call to messages.py" + `${
+    body:  fetch("/p/gensubject"/*, {
+    headers:{
+        "accepts":"text/html"
+    }
+}*/).then(response => response.text())
+  .then(data => console.log(data))
+  .catch(error => console.log("Error: ", error)) + "test -- here would be a call to messages.py/gensubject" + `${
       name || "[YOUR NAME HERE]"
     }`,
     args: {

@@ -19,7 +19,8 @@ const IndexPage = () => {
   // DELETE later.
   // set defaults
   useEffect(() => {
-    setEmailId("police-brutality-la")
+    //setEmailId("police-brutality-la")
+    setEmailId("activism-mail-bot")
   }, [])
 
   useEffect(() => {

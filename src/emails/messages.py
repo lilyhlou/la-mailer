@@ -1,5 +1,6 @@
 import sys,random
 from flask import Flask
+from flask import request
 
 """
     Template credit: nomoreracistcops.github.io
@@ -9,7 +10,7 @@ from flask import Flask
 """
 
 app = Flask(__name__)
-@app.route('/')
+@app.route('/p/gensubject')
 # Randomly generates the subject header of the email
 def gen_subject():
     s = ["Human Rights Inquiry", "Thoughts of a Concerned Citizen", "In Light of Recent Human Rights Abuses", "The Need for Police Oversight", "The Need for Police Accountability", "The Failures of Modern Law Enforcement", "Law Enforcement Must Change", "The Voice of a Troubled Citizen", "The Need for Law Enforcement Reform", "Reforms to Law Enforcement Needed", "Your Duty as a Public Servant"]
@@ -132,7 +133,9 @@ def gen_closing(name):
     ]
     return "\n%s,\n%s" % (random.choice(c), name)
 
+
 #depending on the arguments, generate a certain part of the message
+"""
 print(sys.argv)
 if len(sys.argv) > 1:
     if sys.argv[1] == 'body':
@@ -144,3 +147,4 @@ if len(sys.argv) > 1:
         print(gen_subject())
     else:
         print("Usage: \npython messages.py subject\npython messages.py body src_name dst_name, location\nAs of now, the value of location is not used")
+"""
