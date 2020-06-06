@@ -25,7 +25,7 @@ function buildEmail({ name }) {
           inputType: "text",
         },
       },
-      directRecipient: `clerk.budgetandfinancecommittee@lacity.org`,
+      directRecipient: ``,
       receivers: [
         {
         	label: "Phoenix",
