@@ -1,6 +1,6 @@
 function buildEmail({ name }) {
   var fetched_body = "nothing here."
-  fetch("/p/gensubject"/*, {
+  return fetch("/p/gensubject"/*, {
     headers:{
         "accepts":"text/html"
     }

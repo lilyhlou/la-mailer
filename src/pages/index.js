@@ -32,25 +32,40 @@ const IndexPage = () => {
       emailId,
       stringInputs: emailBodyArgs,
     })
+
+    var setValsFromEmail = function(email){
+      setReceivers(email.receivers)
+      setArgs(email.args)
+      setEmailDirectRecipient(email.directRecipient)
+      setEmailSubject(email.subject)
+      setEmailBody(email.body)
+      setModalInfo({
+        title: email.modalTitle,
+        body: email.modalBody,
+        url: email.modalUrl,
+      })
+      setEmailRecipients(
+        email.receivers.reduce((recipients, receiver) => {
+          if (receiver.autoSelect) {
+            return [...recipients, receiver.email]
+          }
+          return recipients
+        }, [])
+      )
+    }
+
     console.log('EMAIL : ' + email)
-    setReceivers(email.receivers)
-    setArgs(email.args)
-    setEmailDirectRecipient(email.directRecipient)
-    setEmailSubject(email.subject)
-    setEmailBody(email.body)
-    setModalInfo({
-      title: email.modalTitle,
-      body: email.modalBody,
-      url: email.modalUrl,
-    })
-    setEmailRecipients(
-      email.receivers.reduce((recipients, receiver) => {
-        if (receiver.autoSelect) {
-          return [...recipients, receiver.email]
-        }
-        return recipients
-      }, [])
-    )
+    //check if email is a promise.
+    if(typeof email.then == 'function') {
+      email.then(function(async_email){
+        console.log('data: ')
+        console.log(async_email)
+        setValsFromEmail(async_email)})
+    } else {
+      setValsFromEmail(email)
+    }
+
+
   }, [emailId, emailBodyArgs])
 
   const layoutProps = useMemo(
