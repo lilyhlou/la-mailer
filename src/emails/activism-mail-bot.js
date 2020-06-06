@@ -1,9 +1,7 @@
 function buildEmail({ name }) {
   var fetched_subject = "nothing here"
   var fetched_body = "nor here"
-  return fetch("/p/genmsg/" + `${
-      name || "yournamehere"
-    }`/*, {
+  return fetch("/p/genmsg/"/*, {
     headers:{
         "accepts":"text/html"
     }
@@ -18,7 +16,7 @@ function buildEmail({ name }) {
     var ret_val = {
       title: "Auto generated",
       subject: fetched_subject,
-      body: fetched_body + "test -- here would be a call to messages.py/gensubject" + `${
+      body: fetched_body + `${
           name || "[YOUR NAME HERE]"
         }`,
       args: {

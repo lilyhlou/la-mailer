@@ -11,9 +11,9 @@ from flask import request
 
 app = Flask(__name__)
 
-@app.route("/p/genmsg/<name>")
-def gen_msg(name="[YOUR NAME HERE]"):
-    return "%s;%s" % (gen_subject(), gen_body(name))
+@app.route("/p/genmsg/")#<name>")
+def gen_msg():#name="[YOUR NAME HERE]"):
+    return "%s;%s" % (gen_subject(), gen_body())
 #@app.route("/p/gensubject")
 # Randomly generates the subject header of the email
 def gen_subject(): #note can this function be used later if its part of the app route? (im very new to flask)
@@ -22,12 +22,12 @@ def gen_subject(): #note can this function be used later if its part of the app 
 
 #@app.route("/p/genbody/<name>")
 # Randomly generates the body of the email, follows structure of template and swaps out select words/phrases
-def gen_body(name):#="YOUR NAME HERE"):
-    return "%s\t%s\t%s\t%s" % (gen_greeting(), gen_intro(), gen_curiosity(), gen_conclusion(name))
+def gen_body():#="YOUR NAME HERE"):
+    return "%s\t%s\t%s\t%s" % (gen_greeting(), gen_intro(), gen_curiosity(), gen_conclusion())
 
 # Generates the greeting to the recipient of the email
 def gen_greeting():
-    s = ["Dear", "Hello", "Greetings", "Hi"]
+    s = ["Hello", "Greetings", "Hi"] #"Dear"
     # since we are drafting one email to many people, commenting out the individualized greeting option:
     #return "%s %s,\n\n" % (random.choice(s), person) # person was an argument to this function
     return "%s, \n\n" % (random.choice(s))
@@ -85,11 +85,11 @@ def gen_rhetorical_questions():
     return ' '.join(random.sample(q, k=len(q)))
 
 
-def gen_conclusion(name):
+def gen_conclusion():
     noun = ["safeguards", "policies", "provisions"]
     verb = ["support", "want", "approve of"]
     place = ["law enforcement agencies", "police departments", "government institutions", "public institutions"]
-    return "If these %s are not in place, then they certainly should be. %s I do not %s my local taxes being used to fund %s that perpetuate racism and violence. %s\n%s\n%s" % (random.choice(noun), gen_action(), random.choice(verb), random.choice(place), gen_interests(), gen_gratitude(), gen_closing(name))
+    return "If these %s are not in place, then they certainly should be. %s I do not %s my local taxes being used to fund %s that perpetuate racism and violence. %s\n%s\n%s" % (random.choice(noun), gen_action(), random.choice(verb), random.choice(place), gen_interests(), gen_gratitude(), gen_closing())
 
 def gen_action():
     bank = [
@@ -131,7 +131,7 @@ def gen_gratitude():
 
     return "%s %s" % (random.choice(clauses), random.choice(finale))
 
-def gen_closing(name):
+def gen_closing():
     c = [
             "Signed",
             "Sincerely",
@@ -139,7 +139,8 @@ def gen_closing(name):
             "Regards",
             "Best",
     ]
-    return "\n%s,\n%s" % (random.choice(c), name)
+    #return "\n%s,\n%s" % (random.choice(c), name)
+    return "\n%s,\n" % (random.choice(c))
 
 
 #depending on the arguments, generate a certain part of the message
