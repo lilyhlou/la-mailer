@@ -4,12 +4,13 @@ To run :
 
 1. Install NPM, Flask, Node.js, Gatsby 
 2. Run 'npm run build && npm run serve' in terminal
+3. Run 'export FLASK_APP=messages.py'
+4. Run 'flask run'
+5. Implement a reverse proxy (so that flask and npm servers can communicate without CORS issues due to their different ports)
 
-site that builds `production` branch: [here](https://emaillosangeles.netlify.app)
+To implement the reverse proxy, 
+assuming npm is on port 9000 and flask on 5000:
 
-staging environment: [here](https://la-mailer-stage.netlify.app)
-
-To implement the reverse proxy
 Add the following to server section of nginx.conf 
     server {
         listen       8080;
@@ -29,8 +30,11 @@ Add the following to server section of nginx.conf
             #redirect any url beginning with /p/ to port 5000                                                                                                                                                                                 
           proxy_pass http://localhost:5000;
         }
-
 ...rest of server section is irrelevant
+
 This redirects URLs starting with / (so all URLs) to the npm server running on port 9000. Except when a URL starts with /p/ it is directed to the flask server running on port 5000. 
 
 Thus, all calls to the Python scripts running on the flask server must start with /p/, and the python scripts must only take URLs that start with /p/
+
+6. Run nginx
+7. Then, the website will be visible at http://localhost:8080
