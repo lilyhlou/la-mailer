@@ -32,6 +32,7 @@ const IndexPage = () => {
       emailId,
       stringInputs: emailBodyArgs,
     })
+    console.log('EMAIL : ' + email)
     setReceivers(email.receivers)
     setArgs(email.args)
     setEmailDirectRecipient(email.directRecipient)
