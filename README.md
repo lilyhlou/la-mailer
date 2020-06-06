@@ -2,7 +2,7 @@
 
 To run : 
 
-1. Install NPM, Flask, Node.js, Gatsby 
+1. Install NPM, Flask, Node.js, Gatsby, and Nginx 
 2. Run 'npm run build && npm run serve' in terminal
 3. cd into emails folder (in assets folder)
 4. Run 'export FLASK_APP=messages.py'
