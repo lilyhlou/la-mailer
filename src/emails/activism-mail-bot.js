@@ -1,17 +1,23 @@
 function buildEmail({ name }) {
-  var fetched_body = "nothing here."
-  return fetch("/p/gensubject"/*, {
+  var fetched_subject = "nothing here"
+  var fetched_body = "nor here"
+  return fetch("/p/genmsg/" + `${
+      name || "yournamehere"
+    }`/*, {
     headers:{
         "accepts":"text/html"
     }
 }*/).then(response => response.text())
   .then(function(data){
-    fetched_body = data
-    alert(fetched_body)
+    //perhaps this is hacky but it's easy to just separate subject and message by a character
+    var splitAt = ";"
+    var splitted = data.split(splitAt)
+    fetched_subject = splitted[0]
+    fetched_body = splitted[1]
   }).then(function(){
     var ret_val = {
-      title: "Defund LAPD Template",
-      subject: "Defund LAPD",
+      title: "Auto generated",
+      subject: fetched_subject,
       body: fetched_body + "test -- here would be a call to messages.py/gensubject" + `${
           name || "[YOUR NAME HERE]"
         }`,

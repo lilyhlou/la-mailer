@@ -10,28 +10,36 @@ from flask import request
 """
 
 app = Flask(__name__)
-@app.route('/p/gensubject')
+
+@app.route("/p/genmsg/<name>")
+def gen_msg(name="[YOUR NAME HERE]"):
+    return "%s;%s" % (gen_subject(), gen_body(name))
+#@app.route("/p/gensubject")
 # Randomly generates the subject header of the email
-def gen_subject():
+def gen_subject(): #note can this function be used later if its part of the app route? (im very new to flask)
     s = ["Human Rights Inquiry", "Thoughts of a Concerned Citizen", "In Light of Recent Human Rights Abuses", "The Need for Police Oversight", "The Need for Police Accountability", "The Failures of Modern Law Enforcement", "Law Enforcement Must Change", "The Voice of a Troubled Citizen", "The Need for Law Enforcement Reform", "Reforms to Law Enforcement Needed", "Your Duty as a Public Servant"]
     return random.choice(s)
 
+#@app.route("/p/genbody/<name>")
 # Randomly generates the body of the email, follows structure of template and swaps out select words/phrases
-def gen_body(src_name, dst_name, location):
-    return "%s\t%s\t%s\t%s" % (gen_greeting(dst_name), gen_intro(location), gen_curiosity(), gen_conclusion(src_name))
+def gen_body(name):#="YOUR NAME HERE"):
+    return "%s\t%s\t%s\t%s" % (gen_greeting(), gen_intro(), gen_curiosity(), gen_conclusion(name))
 
 # Generates the greeting to the recipient of the email
-def gen_greeting(person):
+def gen_greeting():
     s = ["Dear", "Hello", "Greetings", "Hi"]
-    return "%s %s,\n\n" % (random.choice(s), person)
+    # since we are drafting one email to many people, commenting out the individualized greeting option:
+    #return "%s %s,\n\n" % (random.choice(s), person) # person was an argument to this function
+    return "%s, \n\n" % (random.choice(s))
 
 # Prepends greeting statement to a user-generated message
-def attach_greeting(person, body):
+def attach_greeting(body):
     s = ["Dear", "Hello", "Greetings", "Hi"]
-    return "%s %s,\n\n%s" % (random.choice(s), person, body)
-
+    # since we are drafting one email to many people, commenting out the individualized greeting option:
+    #return "%s %s,\n\n%s" % (random.choice(s), person, body) # person was an argument to this function
+    return "%s, \n\n%s" % (random.choice(s), body)
 # Generates the first sentence of the email.
-def gen_intro(location):
+def gen_intro():
     mess = ["in shambles", "in ruins", "a disaster", "a mess"]
     nominer = ["As a concerned resident of the US,", "I am a resident of the United States and", "As a concerned American,"]
     contact = ["getting in touch", "reaching out to you", "contacting you", "sending you this message"]
