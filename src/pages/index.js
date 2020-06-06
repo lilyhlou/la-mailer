@@ -66,18 +66,31 @@ const IndexPage = () => {
       )
 
       //don't randomize email body every update! only for the first one.
+      console.log(emailBodyArgs.name)
       if(oldEmailBody != "") {
-        console.log("non-blank email body")
-        //console.log(oldEmailBody)
-        setEmailBody(oldEmailBody)
+        //replace the name though
+        //if oldName is current name minus last character (unless current name is undefined or "")
+        //console.log("REPLACED: " + email.body.replace("[YOUR NAME HERE]", "huh"))
+        var oldName = (emailBodyArgs.name === undefined || emailBodyArgs.name == "") ? "" : emailBodyArgs.name.substring(0, emailBodyArgs.name.length-1)
+        console.log("oldname: " + oldName + "\nnewname: " + emailBodyArgs.name)
+        //console.log(oldEmailBody.replace(oldName, emailBodyArgs.name))
+
+        //find last ",\n" line of email which should have the name after it:
+        var idxToReplaceFrom = oldEmailBody.lastIndexOf(",\n")
+        var renamed = oldEmailBody.substring(0, idxToReplaceFrom) + ",\n" + emailBodyArgs.name
+        setEmailBody(renamed)
+        //setEmailBody(oldEmailBody.replace(",\n[YOUR NAME HERE]", emailBodyArgs.name).replace(",\n*", emailBodyArgs.name))
+        //oldName = emailBodyArgs.name
     } else {
-        setEmailBody(email.body)
+        if(emailBodyArgs.name === undefined || emailBodyArgs.name == ""){
+          setEmailBody(email.body)
+        } else {
+          setEmailBody(email.body.replace("[YOUR NAME HERE]", "MY NAME"))//emailBodyArgs.name))
+        }
     }
 
     //same with subject -- only randomize the first time
     if(oldEmailBody != "") {
-      console.log("non-blank email body")
-      //console.log(oldEmailBody)
       setEmailSubject(oldEmailSubject)
   } else {
       setEmailSubject(email.subject)
@@ -85,12 +98,12 @@ const IndexPage = () => {
 
     }
 
-    console.log('EMAIL : ' + email)
+    //console.log('EMAIL : ' + email)
     //check if email is a promise.
     if(typeof email.then == 'function') {
       email.then(function(async_email){
-        console.log('data: ')
-        console.log(async_email)
+        //console.log('data: ')
+        //console.log(async_email)
         setValsFromEmail(async_email)})
     } else {
       setValsFromEmail(email)

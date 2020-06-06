@@ -1965,7 +1965,6 @@ function buildEmail({ name }) {
       ],
     }
 
-    console.log(ret_val)
     return ret_val
   })
   .catch(error => console.log("Error: ", error))
