@@ -28,17 +28,29 @@ const IndexPage = () => {
     if (emailId === "") {
       return
     }
+
+    //save body so it doesn't re-randomize
+    var oldEmailBody = emailBody
+    var oldEmailSubject = emailSubject
+
     const email = buildEmailPreview({
       emailId,
       stringInputs: emailBodyArgs,
     })
 
+/*
+    //check if old body was non-blank. if so, preserve it in the new body (so it doesn't randomize on every update)
+    if(oldEmailBody != "") {
+      console.log("non-blank email body")
+      console.log(oldEmailBody)
+      email.body = oldEmailBody
+  }*/
+
     var setValsFromEmail = function(email){
       setReceivers(email.receivers)
       setArgs(email.args)
       setEmailDirectRecipient(email.directRecipient)
-      setEmailSubject(email.subject)
-      setEmailBody(email.body)
+
       setModalInfo({
         title: email.modalTitle,
         body: email.modalBody,
@@ -52,6 +64,25 @@ const IndexPage = () => {
           return recipients
         }, [])
       )
+
+      //don't randomize email body every update! only for the first one.
+      if(oldEmailBody != "") {
+        console.log("non-blank email body")
+        //console.log(oldEmailBody)
+        setEmailBody(oldEmailBody)
+    } else {
+        setEmailBody(email.body)
+    }
+
+    //same with subject -- only randomize the first time
+    if(oldEmailBody != "") {
+      console.log("non-blank email body")
+      //console.log(oldEmailBody)
+      setEmailSubject(oldEmailSubject)
+  } else {
+      setEmailSubject(email.subject)
+  }
+
     }
 
     console.log('EMAIL : ' + email)
