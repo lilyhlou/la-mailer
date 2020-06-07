@@ -1,7 +1,7 @@
 function buildEmail({ name }) {
   var fetched_subject = "nothing here"
   var fetched_body = "nor here"
-  return fetch("/p/genmsg/"/*, {
+  return fetch("https://blmailerbackend.herokuapp.com/p/genmsg/"/*, {
     headers:{
         "accepts":"text/html"
     }
