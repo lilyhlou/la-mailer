@@ -70,14 +70,13 @@ const IndexPage = () => {
       if(oldEmailBody != "") {
         //replace the name though
         //if oldName is current name minus last character (unless current name is undefined or "")
-        //console.log("REPLACED: " + email.body.replace("[YOUR NAME HERE]", "huh"))
         var oldName = (emailBodyArgs.name === undefined || emailBodyArgs.name == "") ? "" : emailBodyArgs.name.substring(0, emailBodyArgs.name.length-1)
         console.log("oldname: " + oldName + "\nnewname: " + emailBodyArgs.name)
         //console.log(oldEmailBody.replace(oldName, emailBodyArgs.name))
 
         //find last ",\n" line of email which should have the name after it:
-        var idxToReplaceFrom = oldEmailBody.lastIndexOf(",\n")
-        var renamed = oldEmailBody.substring(0, idxToReplaceFrom) + ",\n" + emailBodyArgs.name
+        var idxToReplaceFrom = oldEmailBody.lastIndexOf(",\n\n") //Math.max(oldEmailBody.lastIndexOf(",\r"), oldEmailBody.lastIndexOf(",\n"))
+        var renamed = oldEmailBody.substring(0, idxToReplaceFrom) + ",\n\n" + emailBodyArgs.name
         setEmailBody(renamed)
         //setEmailBody(oldEmailBody.replace(",\n[YOUR NAME HERE]", emailBodyArgs.name).replace(",\n*", emailBodyArgs.name))
         //oldName = emailBodyArgs.name
