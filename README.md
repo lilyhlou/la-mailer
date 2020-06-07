@@ -1,5 +1,5 @@
-# Mailer, for LA County.
-
+# Politician Mailer
+Generates a randomized message to raise awareness about and provide solutions to racism and sends to over 200 elected officials. 
 To run : 
 
 1. Install NPM, Flask, Node.js, Gatsby, and Nginx 
