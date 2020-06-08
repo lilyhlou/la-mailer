@@ -118,6 +118,7 @@ const Layout = ({
       {controlContainerComponent}
       {previewComponent}
       {showModal && modalComponent}
+      <h1 style={{color: "rgba(0, 0, 0, 0.4)", position: "fixed", bottom: "0", right: "0", fontSize: "90%", fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"}} >Want individualized emails thru gmail? Coming soon from <a href="https://github.com/cvaldez98/activism-web-client">this project</a></h1>
     </StyledContainer>
   )
 }

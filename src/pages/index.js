@@ -147,7 +147,6 @@ const IndexPage = () => {
       modalInfo,
     ]
   )
-
   return (
     <>
       <SEO title="Home" />
