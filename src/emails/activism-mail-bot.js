@@ -16,12 +16,12 @@ function buildEmail({ name }) {
     var ret_val = {
       title: "Auto generated",
       subject: fetched_subject,
-      body: fetched_body + `${
+      body: fetched_body + `\n${
           name || "[YOUR NAME HERE]"
         }`,
       args: {
         name: {
-          label: "Your name",
+          label: "Enter your name:",
           inputType: "text",
         },
       },
@@ -603,6 +603,101 @@ function buildEmail({ name }) {
         	email: "CityAttorney@santaclaraca.gov",
         },
         {
+        	label: "Santa Clara County",
+        	name: "Supervisor Mike Wasserman",
+        	email: "mike.wasserman@bos.sccgov.org",
+        },
+        {
+        	label: "Santa Clara County",
+        	name: "Supervisor Cindy Chavez",
+        	email: "cindy.chavez@bos.sccgov.org",
+        },
+        {
+        	label: "Santa Clara County",
+        	name: "Supervisor Dave Cortese",
+        	email: "dave.cortese@bos.sccgov.org",
+        },
+        {
+        	label: "Santa Clara County",
+        	name: "Supervisor Susan Ellenberg",
+        	email: "supervisor.ellenberg@bos.sccgov.org",
+        },
+        {
+        	label: "Santa Clara County",
+        	name: "Supervisor Joe Simitian",
+        	email: "supervisor.simitian@bos.sccgov.org",
+        },
+        {
+        	label: "Santa Clara County",
+        	name: "District Attorney Jeffrey Rosen",
+        	email: "jrosen@dao.sccgov.org",
+        },
+        {
+        	label: "Santa Clara County",
+        	name: "County Sheriff Laurie Smith",
+        	email: "so.website@shf.sccgov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Mayor Michael Hancock",
+        	email: "mayorsoffice@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilwoman Amanda P. Sandoval",
+        	email: "districtone@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilman Kevin Flynn",
+        	email: "kevin.flynn@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilwoman Jamie Torres",
+        	email: "Jamie.Torres@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilwoman Kendra Black",
+        	email: "kendra.black@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilwoman Amanda Sawyer",
+        	email: "DenverCouncil5@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilman Paul Kashmann",
+        	email: "paul.kashmann@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilman Jolon Clark",
+        	email: "jolon.clark@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilman Christopher Herndon",
+        	email: "christopher.herndon@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilwoman Candi CdeBaca",
+        	email: "district9@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilman Chris Hinds",
+        	email: "chris.hinds@denvergov.org",
+        },
+        {
+        	label: "Denver",
+        	name: "Councilwoman Stacie Gilmore",
+        	email: "stacie.gilmore@denvergov.org",
+        },
+        {
         	label: "DC",
         	name: "Mayor Muriel Bowser",
         	email: "eom@dc.gov",
@@ -908,6 +1003,131 @@ function buildEmail({ name }) {
         	email: "statesattorney@cookcountyil.gov",
         },
         {
+        	label: "Indy",
+        	name: "Councillor Lery Robinson",
+        	email: "leroy.robinson@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Keith Potts",
+        	email: "keith.potts@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Dan Boots",
+        	email: "Dan.Boots@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Ethan Evans",
+        	email: "Ethan.Evans2@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Ali Brown",
+        	email: "ali.brown@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Crista Carlino",
+        	email: "crista.carlino@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor John Barth",
+        	email: "John.Barth@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Monroe Gray, Jr.",
+        	email: "monroe.gray@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor William Oliver",
+        	email: "william.oliver@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Maggie A. Lewis",
+        	email: "maggie.lewis@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Vop Osili",
+        	email: "Vop.Osili@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Blake Johnson",
+        	email: "blake.johnson@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Keith L. Graves",
+        	email: "keith.graves@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor La Keisha Jackson",
+        	email: "lakeisha.jackson@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Jessica McCormick",
+        	email: "jessica.mccormick@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Kristin Jones",
+        	email: "kristin.jones@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Zach Adamson",
+        	email: "Zach@adamsonforindy.com",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Michael-Paul Hart",
+        	email: "michael-paul.hart@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor David Ray",
+        	email: "david.ray@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Jason Holliday",
+        	email: "jasonhollidayccc20@gmail.com",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Frank Mascari",
+        	email: "frank.mascari@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Jared Evans",
+        	email: "jared.evans@indy.gov",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Paul Annee",
+        	email: "paul.anneed23@gmail.com",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Michael Dilk",
+        	email: "mike.dilk424@gmail.com",
+        },
+        {
+        	label: "Indy",
+        	name: "Councillor Brian Mowery",
+        	email: "brian.mowery@indy.gov",
+        },
+        {
         	label: "Baltimore",
         	name: "Mayor Bernard Young",
         	email: "mayor@baltimorecity.gov",
@@ -1038,6 +1258,116 @@ function buildEmail({ name }) {
         	email: "mediarelations@pd.boston.gov",
         },
         {
+        	label: "Somerville",
+        	name: "Mayor Joseph A. Curtatone",
+        	email: "mayor@somervillema.gov",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Matthew McLaughlin",
+        	email: "mattforward1@gmail.com",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Mary Jo Rossetti",
+        	email: "mjrossetti@somervillema.gov",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Kristen Strezo",
+        	email: "strezoatlarge@gmail.com",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Wilfred N. Mbah",
+        	email: "aldermanmbah@gmail.com",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember William A. White, Jr.",
+        	email: "william.a.white@verizon.net",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Jefferson Thomas Scott",
+        	email: "jtscott@somervillema.gov",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Ben Ewen-Campen",
+        	email: "benforward3@gmail.com",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Jesse Clingan",
+        	email: "aldermanclingan@gmail.com",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Mark Niedergang",
+        	email: "mniedergang@somervillema.gov",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Lance Davis",
+        	email: "lancedavisward6@gmail.com",
+        },
+        {
+        	label: "Somerville",
+        	name: "Councilmember Katjana Ballantyne",
+        	email: "katjana@katjana.org",
+        },
+        {
+        	label: "Worcester",
+        	name: "Mayor Joseph M. Petty",
+        	email: "Mayor@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember Morris A. Bergman",
+        	email: "BergmanM@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember Donna M. Colorio",
+        	email: "ColorioD@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember Khrystian E. King",
+        	email: "KingK@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember Gary Rosen",
+        	email: "RosenG@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember Kathleen M. Toomey",
+        	email: "ToomeyK@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember Candy F. Mero-Carlson",
+        	email: "Mero-CarlsonC@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember George J. Russell",
+        	email: "RussellG@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember Sarai Rivera",
+        	email: "RiveraSA@worcesterma.gov",
+        },
+        {
+        	label: "Worcester",
+        	name: "Councilmember Matthew E. Wally",
+        	email: "WallyM@worcesterma.gov",
+        },
+        {
         	label: "Minneapolis",
         	name: "Mayor Jacob Frey",
         	email: "Jacob.Frey@minneapolismn.gov",
@@ -1101,6 +1431,11 @@ function buildEmail({ name }) {
         	label: "Minneapolis",
         	name: "Councilmember Linea Palmisano",
         	email: "Linea.Palmisano@minneapolismn.gov",
+        },
+        {
+        	label: "Minneapolis",
+        	name: "Director Velma Korbel",
+        	email: "velma.korbel@minneapolismn.gov",
         },
         {
         	label: "Greene County",
@@ -1273,6 +1608,56 @@ function buildEmail({ name }) {
         	email: "jardonn@reno.gov",
         },
         {
+        	label: "Buffalo",
+        	name: "Mayor Bryon W. Brown",
+        	email: "mayor@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember Darius G. Pridgen",
+        	email: "dpridgen@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember David A. Rivera",
+        	email: "darivera@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember Christopher P. Scanlon ",
+        	email: "cscanlon@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember Joel P. Feroleto",
+        	email: "jferoleto@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember Bryan Bollman",
+        	email: "bbollman@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember Mitch Nowakowski",
+        	email: "mnowakowski@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember Joseph Golombek, Jr.",
+        	email: "jgolombek@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember Ulysees O. Wingo, Sr.",
+        	email: "uwingo@city-buffalo.com",
+        },
+        {
+        	label: "Buffalo",
+        	name: "Councilmember Rasheed N.C. Wyatt",
+        	email: "rwyatt@city-buffalo.com",
+        },
+        {
         	label: "NYC",
         	name: "Mayor Bill de Blasio",
         	email: "bdeblasio@cityhall.nyc.gov",
@@ -1318,164 +1703,54 @@ function buildEmail({ name }) {
         	email: "glickd@assembly.state.ny.us",
         },
         {
-        	label: "Durham County",
-        	name: "Chair Wendy Jacobs",
-        	email: "wjacobs@dconc.gov",
+        	label: "Rochester",
+        	name: "Mayor Lovely A. Warren",
+        	email: "info@cityofrochester.gov",
         },
         {
-        	label: "Durham County",
-        	name: "Vice-Chairman James Hill",
-        	email: "jahill@dconc.gov",
+        	label: "Rochester",
+        	name: "Councilmember Loretta C. Scott",
+        	email: "Loretta.Scott@cityofrochester.gov",
         },
         {
-        	label: "Durham County",
-        	name: "Commissioner Heidi Carter",
-        	email: "hcarter@dconc.gov",
+        	label: "Rochester",
+        	name: "Councilmember Malik D. Evans",
+        	email: "Malik.Evans@cityofrochester.gov",
         },
         {
-        	label: "Durham County",
-        	name: "Commissioner Brenda Howerton",
-        	email: "bhowerton@dconc.gov",
+        	label: "Rochester",
+        	name: "Councilmember Mitchell D. Gruber",
+        	email: "Mitch.Gruber@cityofrochester.gov",
         },
         {
-        	label: "Durham County",
-        	name: "Commissioner Ellen Reckhow",
-        	email: "ereckhow@dconc.gov",
+        	label: "Rochester",
+        	name: "Councilmember Willie J. Lightfoot",
+        	email: "Willie.Lightfoot@cityofrochester.gov",
         },
         {
-        	label: "Durham County",
-        	name: "Sheriff Clarence Birkhead",
-        	email: "sheriffbirkhead@durhamsheriff.org",
+        	label: "Rochester",
+        	name: "Councilmember Jacklyn Ortiz",
+        	email: "Jacklyn.Ortiz@cityofrochester.gov",
         },
         {
-        	label: "Wake County",
-        	name: "Commissioner Sig Hutchinson",
-        	email: "Sig.Hutchinson@wakegov.com",
+        	label: "Rochester",
+        	name: "Councilmember LaShay D. Harris",
+        	email: "LaShay.Harris@cityofrochester.gov",
         },
         {
-        	label: "Wake County",
-        	name: "Commissioner Matt Calabria",
-        	email: "Matt.Calabria@wakegov.com",
+        	label: "Rochester",
+        	name: "Councilmember Mary Lupien",
+        	email: "Mary.Lupien@cityofrochester.gov",
         },
         {
-        	label: "Wake County",
-        	name: "Commissioner Susan Evans",
-        	email: "Susan.Evans@wakegov.com",
+        	label: "Rochester",
+        	name: "Councilmember Michael A. Patterson",
+        	email: "Michael.Patterson@cityofrochester.gov",
         },
         {
-        	label: "Wake County",
-        	name: "Commissioner Jessica Holmes",
-        	email: "Jessica.Holmes@wakegov.com",
-        },
-        {
-        	label: "Wake County",
-        	name: "Commissioner James West",
-        	email: "james.west@wakegov.com",
-        },
-        {
-        	label: "Wake County",
-        	name: "Chairman Greg Ford",
-        	email: "Greg.Ford@wakegov.com",
-        },
-        {
-        	label: "Wake County",
-        	name: "Vice-Chair Vickie Adamson",
-        	email: "Vickie.Adamson@wakegov.com",
-        },
-        {
-        	label: "Wake County",
-        	name: "County Manager David Ellis",
-        	email: "David.Ellis@wakegov.com",
-        },
-        {
-        	label: "Wake County",
-        	name: "Sheriff Gerald Baker",
-        	email: "gerald.baker@wakegov.com",
-        },
-        {
-        	label: "Durham",
-        	name: "Councilwoman Javiera Caballero",
-        	email: "Javiera.Caballero@durhamnc.gov",
-        },
-        {
-        	label: "Durham",
-        	name: "Councilwoman DeDreana Freeman",
-        	email: "dedreana.freeman@durhamnc.gov",
-        },
-        {
-        	label: "Durham",
-        	name: "Councilman Mark-Anthony Middleton",
-        	email: "Mark-Anthony.Middleton@durhamnc.gov",
-        },
-        {
-        	label: "Durham",
-        	name: "Mayor Pro Tempore Jillian Johnson",
-        	email: "Jillian.Johnson@durhamnc.gov",
-        },
-        {
-        	label: "Durham",
-        	name: "Councilman Charlie Reece",
-        	email: "charlie.reece@durhamnc.gov",
-        },
-        {
-        	label: "Durham",
-        	name: "Mayor Steve Schewel",
-        	email: "Steve.Schewel@durhamnc.gov",
-        },
-        {
-        	label: "Durham",
-        	name: "Chief CJ Davis",
-        	email: "policechief@durhamnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "City Manager Ruffin Hall",
-        	email: "citymanager@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Chief Cassandra Deck-Brown",
-        	email: "cassandra.deck-brown@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Mayor Mary-Ann Baldwin",
-        	email: "mary-ann.baldwin@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Councilman Jonathan Melton",
-        	email: "jonathan.melton@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Councilwoman Nicole Stewart",
-        	email: "nicole.stewart@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Councilman Patrick Buffkin",
-        	email: "patrick.buffkin@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Councilman David Cox",
-        	email: "david.cox@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Councilman Corey Branch",
-        	email: "corey.branch@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Councilman Saige Martin",
-        	email: "saige.martin@raleighnc.gov",
-        },
-        {
-        	label: "Raleigh",
-        	name: "Councilman David Knight",
-        	email: "david.knight@raleighnc.gov",
+        	label: "Rochester",
+        	name: "Councilmember Jose Peo",
+        	email: "Jose.Peo@cityofrochester.gov",
         },
         {
         	label: "Apex",
@@ -1553,6 +1828,71 @@ function buildEmail({ name }) {
         	email: "lori.bush@townofcary.org",
         },
         {
+        	label: "Durham County",
+        	name: "Chair Wendy Jacobs",
+        	email: "wjacobs@dconc.gov",
+        },
+        {
+        	label: "Durham County",
+        	name: "Vice-Chairman James Hill",
+        	email: "jahill@dconc.gov",
+        },
+        {
+        	label: "Durham County",
+        	name: "Commissioner Heidi Carter",
+        	email: "hcarter@dconc.gov",
+        },
+        {
+        	label: "Durham County",
+        	name: "Commissioner Brenda Howerton",
+        	email: "bhowerton@dconc.gov",
+        },
+        {
+        	label: "Durham County",
+        	name: "Commissioner Ellen Reckhow",
+        	email: "ereckhow@dconc.gov",
+        },
+        {
+        	label: "Durham County",
+        	name: "Sheriff Clarence Birkhead",
+        	email: "sheriffbirkhead@durhamsheriff.org",
+        },
+        {
+        	label: "Durham",
+        	name: "Councilwoman Javiera Caballero",
+        	email: "Javiera.Caballero@durhamnc.gov",
+        },
+        {
+        	label: "Durham",
+        	name: "Councilwoman DeDreana Freeman",
+        	email: "dedreana.freeman@durhamnc.gov",
+        },
+        {
+        	label: "Durham",
+        	name: "Councilman Mark-Anthony Middleton",
+        	email: "Mark-Anthony.Middleton@durhamnc.gov",
+        },
+        {
+        	label: "Durham",
+        	name: "Mayor Pro Tempore Jillian Johnson",
+        	email: "Jillian.Johnson@durhamnc.gov",
+        },
+        {
+        	label: "Durham",
+        	name: "Councilman Charlie Reece",
+        	email: "charlie.reece@durhamnc.gov",
+        },
+        {
+        	label: "Durham",
+        	name: "Mayor Steve Schewel",
+        	email: "Steve.Schewel@durhamnc.gov",
+        },
+        {
+        	label: "Durham",
+        	name: "Chief CJ Davis",
+        	email: "policechief@durhamnc.gov",
+        },
+        {
         	label: "Fuquay-Varina",
         	name: "Town Manager Adam Mitchell",
         	email: "amitchell@fuquay-varina.org",
@@ -1593,6 +1933,101 @@ function buildEmail({ name }) {
         	email: "lfahnestock@fuquay-varina.org",
         },
         {
+        	label: "Raleigh",
+        	name: "City Manager Ruffin Hall",
+        	email: "citymanager@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Chief Cassandra Deck-Brown",
+        	email: "cassandra.deck-brown@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Mayor Mary-Ann Baldwin",
+        	email: "mary-ann.baldwin@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Councilman Jonathan Melton",
+        	email: "jonathan.melton@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Councilwoman Nicole Stewart",
+        	email: "nicole.stewart@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Councilman Patrick Buffkin",
+        	email: "patrick.buffkin@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Councilman David Cox",
+        	email: "david.cox@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Councilman Corey Branch",
+        	email: "corey.branch@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Councilman Saige Martin",
+        	email: "saige.martin@raleighnc.gov",
+        },
+        {
+        	label: "Raleigh",
+        	name: "Councilman David Knight",
+        	email: "david.knight@raleighnc.gov",
+        },
+        {
+        	label: "Wake County",
+        	name: "Commissioner Sig Hutchinson",
+        	email: "Sig.Hutchinson@wakegov.com",
+        },
+        {
+        	label: "Wake County",
+        	name: "Commissioner Matt Calabria",
+        	email: "Matt.Calabria@wakegov.com",
+        },
+        {
+        	label: "Wake County",
+        	name: "Commissioner Susan Evans",
+        	email: "Susan.Evans@wakegov.com",
+        },
+        {
+        	label: "Wake County",
+        	name: "Commissioner Jessica Holmes",
+        	email: "Jessica.Holmes@wakegov.com",
+        },
+        {
+        	label: "Wake County",
+        	name: "Commissioner James West",
+        	email: "james.west@wakegov.com",
+        },
+        {
+        	label: "Wake County",
+        	name: "Chairman Greg Ford",
+        	email: "Greg.Ford@wakegov.com",
+        },
+        {
+        	label: "Wake County",
+        	name: "Vice-Chair Vickie Adamson",
+        	email: "Vickie.Adamson@wakegov.com",
+        },
+        {
+        	label: "Wake County",
+        	name: "County Manager David Ellis",
+        	email: "David.Ellis@wakegov.com",
+        },
+        {
+        	label: "Wake County",
+        	name: "Sheriff Gerald Baker",
+        	email: "gerald.baker@wakegov.com",
+        },
+        {
         	label: "Columbus",
         	name: "Mayor Andrew J. Ginther",
         	email: "311@columbus.gov",
@@ -1606,6 +2041,51 @@ function buildEmail({ name }) {
         	label: "Columbus",
         	name: "Councilmember Rob Dorans",
         	email: "radorans@columbus.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Mayor David Holt",
+        	email: "mayor@okc.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Councilmember James Greiner",
+        	email: "ward1@okc.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Councilmember James Cooper",
+        	email: "ward2@okc.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Councilmember Larry McAtee",
+        	email: "ward3@okc.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Councilmember Todd Stone",
+        	email: "ward4@okc.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Councilmember David Greenwell",
+        	email: "ward5@okc.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Councilmember JoBeth Hamon",
+        	email: "ward6@okc.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Councilmember Nikki Nice",
+        	email: "ward7@okc.gov",
+        },
+        {
+        	label: "Oklahoma City",
+        	name: "Councilmember Mark Stonecipher",
+        	email: "ward8@okc.gov",
         },
         {
         	label: "Portland",
@@ -1908,6 +2388,46 @@ function buildEmail({ name }) {
         	email: "Shirley.Gonzales@sanantonio.gov",
         },
         {
+        	label: "Burlington",
+        	name: "Mayor Miro Weinberger",
+        	email: "mayor@burlingtonvt.gov",
+        },
+        {
+        	label: "Burlington",
+        	name: "Councilmember Zoraya Hightower",
+        	email: "zhightower@burlingtonvt.gov",
+        },
+        {
+        	label: "Burlington",
+        	name: "Councilmember Max Tracy",
+        	email: "mtracy@burlingtonvt.gov",
+        },
+        {
+        	label: "Burlington",
+        	name: "Councilmember Brian Pine",
+        	email: "bpine@burlingtonvt.gov",
+        },
+        {
+        	label: "Burlington",
+        	name: "Councilmember Sarah Carpenter",
+        	email: "scarpenter@burlingtonvt.gov",
+        },
+        {
+        	label: "Burlington",
+        	name: "Councilmember William Mason",
+        	email: "cmason@burlingtonvt.gov",
+        },
+        {
+        	label: "Burlington",
+        	name: "Councilmember Karen Paul",
+        	email: "kpaul@burlingtonvt.gov",
+        },
+        {
+        	label: "Burlington",
+        	name: "Councilmember Ali Dieng",
+        	email: "adieng@burlingtonvt.gov",
+        },
+        {
         	label: "Seattle",
         	name: "Mayor Jenny Durkan",
         	email: "jenny.durkan@seattle.gov",
@@ -1951,6 +2471,46 @@ function buildEmail({ name }) {
         	label: "Seattle",
         	name: "Councilmember Teresa Mosqueda",
         	email: "teresa.mosqueda@seattle.gov",
+        },
+        {
+        	label: "Spokane",
+        	name: "Mayor Nadine Woodward",
+        	email: "mayor@spokanecity.org",
+        },
+        {
+        	label: "Spokane",
+        	name: "Councilmember Breean Beggs",
+        	email: "bbeggs@spokanecity.org",
+        },
+        {
+        	label: "Spokane",
+        	name: "Councilmember Michael Cathcart",
+        	email: "mcathcart@spokanecity.org",
+        },
+        {
+        	label: "Spokane",
+        	name: "Councilmember Kate Burke",
+        	email: "kateburke@spokanecity.org",
+        },
+        {
+        	label: "Spokane",
+        	name: "Councilmember Lori Kinnear",
+        	email: "lkinnear@spokanecity.org",
+        },
+        {
+        	label: "Spokane",
+        	name: "Councilmember Betsy Wilkerson",
+        	email: "bwilkerson@spokanecity.org",
+        },
+        {
+        	label: "Spokane",
+        	name: "Councilmember Candace Mumm",
+        	email: "cmumm@spokanecity.org",
+        },
+        {
+        	label: "Spokane",
+        	name: "Councilmember Karen Stratton",
+        	email: "kstratton@spokanecity.org",
         },
         {
         	label: "Tacoma",

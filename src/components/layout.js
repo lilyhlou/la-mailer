@@ -118,6 +118,10 @@ const Layout = ({
       {controlContainerComponent}
       {previewComponent}
       {showModal && modalComponent}
+      <h1 style={{color: "white"/*"rgba(0, 0, 0, 0.4)"*/, position: "fixed", bottom: "0", right: "45px", fontSize: "66%", fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"}} >Want to send individualized emails thru gmail instead? Coming soon from <a style={{color: "white"}} href="https://github.com/cvaldez98/activism-web-client">this project </a>
+       | Frontend based on <a style={{color: "white"}} href="https://github.com/michaelnyu/la-mailer">this </a>
+       | Backend based on <a style={{color: "white"}}href="https://github.com/alandgton/activism-mail-bot">this </a>
+       | Contribute to this site <a style={{color: "white"}}href="https://github.com/nkhalsa/la-mailer">here        </a></h1>
     </StyledContainer>
   )
 }

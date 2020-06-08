@@ -10,7 +10,7 @@ const buttonStyle = css`
   border: ${props =>
     props.type === "secondary" ? colors.blackTertiary + "1px solid" : "none"};
   background-color: ${props =>
-    props.type === "secondary" ? colors.whitePrimary : colors.blackPrimary};
+    props.type === "secondary" ? colors.whitePrimary : colors.redPrimary};
   color: ${props =>
     props.type === "secondary" ? colors.blackPrimary : colors.whitePrimary};
   &:hover {

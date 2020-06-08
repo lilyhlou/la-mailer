@@ -1,5 +1,5 @@
-# Politician Mailer
-Generates a randomized message to raise awareness about and provide solutions to racism and sends to over 200 elected officials. 
+# Mailer, for LA County.
+
 To run : 
 
 1. Install NPM, Flask, Node.js, Gatsby, and Nginx 
@@ -12,8 +12,7 @@ To run :
 To implement the reverse proxy, 
 assuming npm is on port 9000 and flask on 5000:
 
-Add the following to server section of nginx.conf   
-    
+Add the following to server section of nginx.conf 
     server {
         listen       8080;
         server_name  localhost;

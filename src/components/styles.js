@@ -1,6 +1,9 @@
 import { css } from "styled-components"
 
 const colors = {
+  redPrimary: "rgba(255,0,0,0.8)",
+  redSecondary: "rgba(255,0,0,0.6)",
+  redTertiary: "rgba(255,0,0,0.4)",
   blackPrimary: "rgba(0,0,0,0.8)",
   blackSecondary: "rgba(0,0,0,0.6)",
   blackTertiary: "rgba(0,0,0,0.4)",

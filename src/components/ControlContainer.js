@@ -66,6 +66,7 @@ const StyledInputHeader = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 1rem;
+  color: ${colors.redPrimary};
   margin-bottom: 0.5rem;
 `
 
@@ -138,7 +139,7 @@ const ControlContainer = ({
           {receivers && receivers.length !== 0 ? (
             <>
               <StyledInputHeader>
-                Send to...
+                Then press Select all
                 <StyledInputHeaderButtons>
                   <Button
                     onClick={removeAllRecipients}
