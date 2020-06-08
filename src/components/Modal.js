@@ -90,12 +90,12 @@ export default function Modal({ setShowModal, modalInfo, isMobile }) {
         <Spacer height={1} />
         <StyledModalContent isMobile={isMobile}>
           <StyledModalText>
-          Want individualized emails? Visit http://www.activismbot.com/
-          <br />  
+          Want individualized emails? Visit https://github.com/cvaldez98/activism-web-client
+          <br />
           Frontend based on https://github.com/michaelnyu/la-mailer
-          <br />  
+          <br />
           Backend based on https://github.com/alandgton/activism-mail-bot
-          <br />  
+          <br />
           Contribute to this site at https://github.com/nkhalsa/la-mailer
 
 
@@ -107,9 +107,9 @@ export default function Modal({ setShowModal, modalInfo, isMobile }) {
           </StyledModalText>
           <Spacer height={1} />
           <StyledModalText>
-          BLM Emailer is a project adapted from Email Los Angeles to make it easier to contact representatives.
-          <br />   
-            
+          This is a project to make it easier to contact elected officials. Simply type your name, select (all) recipients, then edit or send in mail app.
+          <br />
+          It is based off the above frontend and backend
           </StyledModalText>
           <Spacer height={2} />
         </StyledModalContent>

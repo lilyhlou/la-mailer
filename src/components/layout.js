@@ -113,12 +113,15 @@ const Layout = ({
       </StyledContainer>
     )
   }
+
+  //normal isMobile doesn't seem to work so making a different version -- a bit hacky but should do the trick
+  var isMobile2 = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   return (
     <StyledContainer>
       {controlContainerComponent}
       {previewComponent}
       {showModal && modalComponent}
-      <h1 style={{display: isMobile? "none" : "block", color: "white"/*"rgba(0, 0, 0, 0.4)"*/, position: "fixed", bottom: "0", right: "45px", fontSize: "66%", fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"}} >Want to send individualized emails thru gmail instead? Coming soon from <a style={{color: "white"}} href="https://github.com/cvaldez98/activism-web-client">this project </a>
+      <h1 style={{display: isMobile2? "none" : "block", color: "white"/*"rgba(0, 0, 0, 0.4)"*/, position: "fixed", bottom: "0", right: "45px", fontSize: "66%", fontFamily: "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif"}} >Want to send individualized emails thru gmail instead? Coming soon from <a style={{color: "white"}} href="https://github.com/cvaldez98/activism-web-client">this project </a>
        | Frontend based on <a style={{color: "white"}} href="https://github.com/michaelnyu/la-mailer">this </a>
        | Backend based on <a style={{color: "white"}}href="https://github.com/alandgton/activism-mail-bot">this </a>
        | Contribute to this site <a style={{color: "white"}}href="https://github.com/nkhalsa/la-mailer">here        </a></h1>
