@@ -90,7 +90,7 @@ export default function Modal({ setShowModal, modalInfo, isMobile }) {
         <Spacer height={1} />
         <StyledModalContent isMobile={isMobile}>
           <StyledModalText>
-          Want individualized emails? Coming soon from https://github.com/cvaldez98/activism-web-client
+          Want individualized emails? Visit http://www.activismbot.com/
           <br />  
           Frontend based on https://github.com/michaelnyu/la-mailer
           <br />  
