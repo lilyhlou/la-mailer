@@ -20,6 +20,7 @@ const EmailLink = ({
   stretch,
   style,
 }) => {
+  console.log('isMobile: '+ isMobile)
   let href = `mailto:${directRecipient}?`
 
   if (recipients.length > 1) {
@@ -30,12 +31,13 @@ const EmailLink = ({
   href += `&subject=${subject}`
   href += `&body=${body.replace(/\n\n/g, "%0A%0A")}`
 
-
+  //normal isMobile doesn't seem to work so making a different version -- a bit hacky but should do the trick
+  var isMobile2 = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   return (
     <>
     <StyledEmailLink href={href} style={style}>
       <Button stretch={stretch}>Then press here to edit/send in mail app</Button>
-      <p style={{color: colors.redPrimary, marginBottom:"0px", display: isMobile? "block" : "none"}}>May take time to open in mail on mobile</p>
+      <p style={{color: colors.redPrimary, marginBottom:"2px", display: isMobile2 ? "block" : "none"}}>May take time to open in mail on mobile</p>
     </StyledEmailLink>
     </>
   )
