@@ -11,7 +11,7 @@ const emailIdMap = {
 }
 
 export const emailIdTitleMap = {
-  "activism-mail-bot": "Automatically generated custom letter via https://github.com/alandgton/activism-mail-bot",
+  "activism-mail-bot": "General US - all elected officials",
   "police-brutality-la": "Defund LAPD Template",
   "breonna-taylor": "Justice for Breonna Taylor Template",
   "jackie-lacy": "LA - Rescind Jackie Lacey Endorsement Template",

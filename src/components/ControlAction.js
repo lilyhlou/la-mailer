@@ -51,6 +51,7 @@ const ControlAction = ({
       </>
     )}
     <EmailLink
+      isMobile={isMobile}
       stretch={!isMobile}
       directRecipient={emailDirectRecipient}
       recipients={emailRecipients}
