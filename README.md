@@ -13,6 +13,7 @@ To implement the reverse proxy,
 assuming npm is on port 9000 and flask on 5000:
 
 Add the following to server section of nginx.conf   
+    
     server {
         listen       8080;
         server_name  localhost;
