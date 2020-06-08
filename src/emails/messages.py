@@ -49,9 +49,9 @@ def gen_intro():
     scale = ["across the nation", "throughout the country", "nationwide", "across the country", "throughout the nation"]
 
     if random.randint(0,100) % 2:
-        return "The current law enforcement system is %s. I am %s because I am %s %s by the %s by police %s.\n" % (random.choice(mess), random.choice(contact), random.choice(adverb), random.choice(concern), random.choice(reason), random.choice(scale))
+        return "The current law enforcement system is %s. I am %s because I am %s %s by the %s by police %s.\n\n" % (random.choice(mess), random.choice(contact), random.choice(adverb), random.choice(concern), random.choice(reason), random.choice(scale))
     else:
-        return "%s I am %s because I am %s %s by what I have seen recently regarding the %s by police %s.\n" % (random.choice(nominer), random.choice(contact), random.choice(adverb), random.choice(concern), random.choice(reason), random.choice(scale))
+        return "%s I am %s because I am %s %s by what I have seen recently regarding the %s by police %s.\n\n" % (random.choice(nominer), random.choice(contact), random.choice(adverb), random.choice(concern), random.choice(reason), random.choice(scale))
 
 # Randomly generates a message rooted on human curiosity to expose the inadequacies of the current system
 def gen_curiosity():
@@ -61,9 +61,9 @@ def gen_curiosity():
     crime = ["incidents of racism", "violations of human rights", "occurrences of racism", "exploitations of human rights"]
 
     if random.randint(0,100) % 2:
-        return "As a public servant, what %s will you make to protect black lives? In addition, what %s are in place to prevent %s by officers? %s" % (random.choice(work), random.choice(noun), random.choice(crime), gen_rhetorical_questions())
+        return "As a public servant, what %s will you make to protect black lives? In addition, what %s are in place to prevent %s by officers? %s\n\n" % (random.choice(work), random.choice(noun), random.choice(crime), gen_rhetorical_questions())
     else:
-        return "I would like to %s what %s our police departments have in place to prevent %s by officers, and what %s you will make to protect black lives. %s\n" % (random.choice(verb), random.choice(noun), random.choice(crime), random.choice(work), gen_rhetorical_questions())
+        return "I would like to %s what %s our police departments have in place to prevent %s by officers, and what %s you will make to protect black lives. %s\n\n" % (random.choice(verb), random.choice(noun), random.choice(crime), random.choice(work), gen_rhetorical_questions())
 
 #{NOTE} I might want to change the ones that just say "incidents of racism" to stronger statements
 
@@ -89,7 +89,7 @@ def gen_conclusion():
     noun = ["safeguards", "policies", "provisions"]
     verb = ["support", "want", "approve of"]
     place = ["law enforcement agencies", "police departments", "government institutions", "public institutions"]
-    return "If these %s are not in place, then they certainly should be. %s I do not %s my local taxes being used to fund %s that perpetuate racism and violence. %s\n%s\n%s" % (random.choice(noun), gen_action(), random.choice(verb), random.choice(place), gen_interests(), gen_gratitude(), gen_closing())
+    return "If these %s are not in place, then they certainly should be. %s I do not %s my local taxes being used to fund %s that perpetuate racism and violence. %s\n\n%s\n\n%s" % (random.choice(noun), gen_action(), random.choice(verb), random.choice(place), gen_interests(), gen_gratitude(), gen_closing())
 
 def gen_action():
     bank = [

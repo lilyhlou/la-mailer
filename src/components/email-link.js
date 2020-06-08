@@ -30,7 +30,7 @@ const EmailLink = ({
 
   return (
     <StyledEmailLink href={href} style={style}>
-      <Button stretch={stretch}>Open in Mail App</Button>
+      <Button stretch={stretch}>Then press here to edit/send in mail app</Button>
     </StyledEmailLink>
   )
 }

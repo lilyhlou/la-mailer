@@ -32,6 +32,7 @@ const IndexPage = () => {
     //save body so it doesn't re-randomize
     var oldEmailBody = emailBody
     var oldEmailSubject = emailSubject
+    var oldEmailRecipients = emailRecipients
 
     const email = buildEmailPreview({
       emailId,
@@ -56,15 +57,19 @@ const IndexPage = () => {
         body: email.modalBody,
         url: email.modalUrl,
       })
-      setEmailRecipients(
-        email.receivers.reduce((recipients, receiver) => {
-          if (receiver.autoSelect) {
-            return [...recipients, receiver.email]
-          }
-          return recipients
-        }, [])
-      )
 
+      //don't reset recipients whenever the name changes
+      //if(oldName != emailBodyArgs.name){
+        setEmailRecipients(
+          email.receivers.reduce((recipients, receiver) => {
+            if (receiver.autoSelect) {
+              return [...recipients, receiver.email]
+            }
+            return recipients
+          }, [])
+        )
+      //}
+      
       //don't randomize email body every update! only for the first one.
       console.log(emailBodyArgs.name)
       if(oldEmailBody != "") {
@@ -94,6 +99,7 @@ const IndexPage = () => {
   } else {
       setEmailSubject(email.subject)
   }
+
 
     }
 

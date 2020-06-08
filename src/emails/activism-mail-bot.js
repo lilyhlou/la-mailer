@@ -21,7 +21,7 @@ function buildEmail({ name }) {
         }`,
       args: {
         name: {
-          label: "Your name",
+          label: "Enter your name:",
           inputType: "text",
         },
       },
