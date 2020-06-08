@@ -78,7 +78,7 @@ export default function Modal({ setShowModal, modalInfo, isMobile }) {
       >
         <Spacer height={2} />
         <StyledModalHeader isMobile={isMobile}>
-          <StyledModalText type="heading">{modalInfo.title}</StyledModalText>
+          <StyledModalText type="heading">Credits</StyledModalText>
           <StyledModalClose
             onClick={e => {
               setShowModal(false)
@@ -89,30 +89,27 @@ export default function Modal({ setShowModal, modalInfo, isMobile }) {
         </StyledModalHeader>
         <Spacer height={1} />
         <StyledModalContent isMobile={isMobile}>
-          <StyledModalText>{modalInfo.body}</StyledModalText>
-          <Spacer height={1} />
           <StyledModalText>
-            More resources can be found at:{" "}
-            {modalInfo.url.map(url => (
-              <span key={url}>
-                <a href={url}>{url}</a>
-                <br />
-              </span>
-            ))}
+          Want individualized emails? Coming soon from https://github.com/cvaldez98/activism-web-client
+          <br />  
+          Frontend based on https://github.com/michaelnyu/la-mailer
+          <br />  
+          Backend based on https://github.com/alandgton/activism-mail-bot
+          <br />  
+          Contribute to this site at https://github.com/nkhalsa/la-mailer
+
+
           </StyledModalText>
           <Spacer height={2} />
           <hr />
           <StyledModalText type="heading">
-            About Email Los Angeles
+            About BLM Emailer
           </StyledModalText>
           <Spacer height={1} />
           <StyledModalText>
-            Email Los Angeles is a project started by some students from UCLA.
-            If you're an organizer, let us know how we can support you at{" "}
-            <a href="mailto:activismemailer@gmail.com">
-              activismemailer@gmail.com
-            </a>
-            .
+          BLM Emailer is a project adapted from Email Los Angeles to make it easier to contact representatives.
+          <br />   
+            
           </StyledModalText>
           <Spacer height={2} />
         </StyledModalContent>
