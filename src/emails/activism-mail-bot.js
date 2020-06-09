@@ -1483,11 +1483,6 @@ function buildEmail({ name }) {
         	email: "Jeff.Messenger@house.mo.gov",
         },
         {
-        	label: "Jefferson County",
-        	name: "Representative Rob Vescovo",
-        	email: "Rob.Vescovo@house.mo.gov",
-        },
-        {
         	label: "Kansas City",
         	name: "Representative Keri Ingle",
         	email: "Keri.Ingle@house.mo.gov",
@@ -1501,26 +1496,6 @@ function buildEmail({ name }) {
         	label: "Kansas City",
         	name: "Representative Barbara Washington",
         	email: "Barbara.Washington@house.mo.gov",
-        },
-        {
-        	label: "Pulaski County",
-        	name: "Representative Steve Lynch",
-        	email: "Steve.Lynch@house.mo.gov",
-        },
-        {
-        	label: "Springfield",
-        	name: "Representative Crystal Quade",
-        	email: "Crystal.Quade@house.mo.gov",
-        },
-        {
-        	label: "Springfield",
-        	name: "Representative Elijah Haah",
-        	email: "Elijah.Haahr@house.mo.gov",
-        },
-        {
-        	label: "St. Charles County",
-        	name: "Representative John Wiemann",
-        	email: "John.Wiemann@house.mo.gov",
         },
         {
         	label: "St. Louis",
