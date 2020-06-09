@@ -763,6 +763,41 @@ function buildEmail({ name }) {
         	email: "twhite@dccouncil.us",
         },
         {
+        	label: "Gainesville",
+        	name: "Mayor Lauren Poe",
+        	email: "poelb@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Reina Saco",
+        	email: "sacore@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Gail Johnson",
+        	email: "johnsong1@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Gigi Simmons",
+        	email: "simmonsgg@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Harvey Ward",
+        	email: "wardhl@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner David Arreola",
+        	email: "arreoladi@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Adrian Hayes-Santos",
+        	email: "hayessantosa@cityofgainesville.org",
+        },
+        {
         	label: "Jacksonville",
         	name: "Mayor Lenny Curry",
         	email: "MayorLennyCurry@coj.net",
@@ -1448,11 +1483,6 @@ function buildEmail({ name }) {
         	email: "Jeff.Messenger@house.mo.gov",
         },
         {
-        	label: "Jefferson County",
-        	name: "Representative Rob Vescovo",
-        	email: "Rob.Vescovo@house.mo.gov",
-        },
-        {
         	label: "Kansas City",
         	name: "Representative Keri Ingle",
         	email: "Keri.Ingle@house.mo.gov",
@@ -1466,26 +1496,6 @@ function buildEmail({ name }) {
         	label: "Kansas City",
         	name: "Representative Barbara Washington",
         	email: "Barbara.Washington@house.mo.gov",
-        },
-        {
-        	label: "Pulaski County",
-        	name: "Representative Steve Lynch",
-        	email: "Steve.Lynch@house.mo.gov",
-        },
-        {
-        	label: "Springfield",
-        	name: "Representative Crystal Quade",
-        	email: "Crystal.Quade@house.mo.gov",
-        },
-        {
-        	label: "Springfield",
-        	name: "Representative Elijah Haah",
-        	email: "Elijah.Haahr@house.mo.gov",
-        },
-        {
-        	label: "St. Charles County",
-        	name: "Representative John Wiemann",
-        	email: "John.Wiemann@house.mo.gov",
         },
         {
         	label: "St. Louis",
@@ -2517,6 +2527,7 @@ function buildEmail({ name }) {
         	name: "Mayor Victoria Woodards",
         	email: "nnowman@cityoftacoma.org",
         },
+
       ],
       modalBody: `Description`,
       modalTitle: `Emailing our elected officials for specific changes`,
