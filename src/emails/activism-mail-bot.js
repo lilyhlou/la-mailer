@@ -763,6 +763,41 @@ function buildEmail({ name }) {
         	email: "twhite@dccouncil.us",
         },
         {
+        	label: "Gainesville",
+        	name: "Mayor Lauren Poe",
+        	email: "poelb@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Reina Saco",
+        	email: "sacore@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Gail Johnson",
+        	email: "johnsong1@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Gigi Simmons",
+        	email: "simmonsgg@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Harvey Ward",
+        	email: "wardhl@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner David Arreola",
+        	email: "arreoladi@cityofgainesville.org",
+        },
+        {
+        	label: "Gainesville",
+        	name: "Commissioner Adrian Hayes-Santos",
+        	email: "hayessantosa@cityofgainesville.org",
+        },
+        {
         	label: "Jacksonville",
         	name: "Mayor Lenny Curry",
         	email: "MayorLennyCurry@coj.net",
@@ -2517,6 +2552,7 @@ function buildEmail({ name }) {
         	name: "Mayor Victoria Woodards",
         	email: "nnowman@cityoftacoma.org",
         },
+
       ],
       modalBody: `Description`,
       modalTitle: `Emailing our elected officials for specific changes`,
