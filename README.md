@@ -2,7 +2,7 @@
 
 Website is up! www.blacklives.email
 
-Generates a randomized message to raise awareness about and provide solutions to racism and sends to over 200 elected officials. 
+Generates a message based on github.com/alandgton/activism-mail-bot (based on template from https://nomoreracistcops.github.io) and prepares an email in mail app to send to 500 elected officials. frontend taken from github.com/michaelnyu/la-mailer.
 
 To run source code : 
 
