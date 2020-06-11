@@ -1,8 +1,10 @@
 # Politician Mailer
 
 Website is up! www.blacklives.email
+
 Generates a randomized message to raise awareness about and provide solutions to racism and sends to over 200 elected officials. 
-To run : 
+
+To run source code : 
 
 1. Install NPM, Flask, Node.js, Gatsby, and Nginx 
 2. Run 'npm run build && npm run serve' in terminal
