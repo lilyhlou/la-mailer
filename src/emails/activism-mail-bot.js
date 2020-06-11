@@ -1,6 +1,26 @@
 function buildEmail({ name }) {
   var fetched_subject = "nothing here"
   var fetched_body = "nor here"
+
+  //function return n random elements from the array (from Bergi's answer on https://stackoverflow.com/questions/19269545/how-to-get-n-no-elements-randomly-from-an-array)
+  function get_random_n_elements(n,arr) {
+    var retval = new Array(n)
+    var len = arr.length
+    var taken = new Array(len)
+    if(n > len){
+      throw new RangeErr("more elements chosen than exist")
+    }
+
+    while(n--){
+      //copy an element from arr to retval
+      var copyIdx = Math.floor(Math.random() * len)
+      retval[n] = arr[copyIdx in taken ? taken[copyIdx] : copyIdx]
+      taken[copyIdx] = --len in taken ? taken[len] : len
+    }
+
+    return retval
+  }
+
   return fetch("/p/genmsg"/*, {
     headers:{
         "accepts":"text/html"
@@ -14,7 +34,6 @@ function buildEmail({ name }) {
     fetched_body = splitted[1]
   }).then(function(){
     var ret_val = {
-      randomly_generated: true,
       title: "Auto generated",
       subject: fetched_subject,
       body: fetched_body + `\n${
@@ -27,7 +46,7 @@ function buildEmail({ name }) {
         },
       },
       directRecipient: ``,
-      receivers: [
+      receivers: get_random_n_elements(3, [
         {
         	label: "Phoenix",
         	name: "Mayor Kate Gallego",
@@ -2529,14 +2548,14 @@ function buildEmail({ name }) {
         	email: "nnowman@cityoftacoma.org",
         },
 
-      ],
+      ]),
       modalBody: `Description`,
       modalTitle: `Emailing our elected officials for specific changes`,
       modalUrl: [
         `https://docs.google.com/document/u/1/d/1qbq7YfJs102qJbGwGO1-wFa0diG16LdGYqiOoQ-hRAI/mobilebasic`,
       ],
     }
-    
+
     return ret_val
   })
   .catch(error => console.log("Error: ", error))
