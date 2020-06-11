@@ -46,7 +46,7 @@ function buildEmail({ name }) {
         },
       },
       directRecipient: ``,
-      receivers: get_random_n_elements(3, [
+      receivers: get_random_n_elements(500, [
         {
         	label: "Phoenix",
         	name: "Mayor Kate Gallego",
