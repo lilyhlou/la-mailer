@@ -11,10 +11,10 @@ const emailIdMap = {
 }
 
 export const emailIdTitleMap = {
-  "activism-mail-bot": "General US - all elected officials",
-  "police-brutality-la": "Defund LAPD Template",
-  "breonna-taylor": "Justice for Breonna Taylor Template",
-  "jackie-lacy": "LA - Rescind Jackie Lacey Endorsement Template",
+  "activism-mail-bot": "General Message : all elected officials",
+  "police-brutality-la": "Defund LAPD Template : LA officials",
+  "breonna-taylor": "Justice for Breonna Taylor Template : Louisville officials",
+  "jackie-lacy": "Recall Jackie Lacey Endorsement Template : LA",
 }
 
 export function buildEmailPreview({ emailId, stringInputs }) {
