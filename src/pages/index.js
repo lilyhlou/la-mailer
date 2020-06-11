@@ -47,6 +47,7 @@ const IndexPage = () => {
       email.body = oldEmailBody
   }*/
 
+
     var setValsFromEmail = function(email){
       setReceivers(email.receivers)
       setArgs(email.args)
@@ -58,59 +59,66 @@ const IndexPage = () => {
         url: email.modalUrl,
       })
 
-      //don't reset recipients whenever the name changes
-      //if(oldName != emailBodyArgs.name){
-        setEmailRecipients(
-          email.receivers.reduce((recipients, receiver) => {
-            if (receiver.autoSelect) {
-              return [...recipients, receiver.email]
+      setEmailRecipients(
+        email.receivers.reduce((recipients, receiver) => {
+          if (receiver.autoSelect) {
+            return [...recipients, receiver.email]
+          }
+          return recipients
+        }, [])
+      )
+
+      //only do the following if the email is randomly generated (i.e. if it is from github.com/alandgton/activism-mail-bot):
+      if(emailId == "activism-mail-bot"){
+            //don't randomize email body every update! only for the first one.
+            console.log(emailBodyArgs.name)
+            if(oldEmailBody != "") {
+              //replace the name though
+              //if oldName is current name minus last character (unless current name is undefined or "")
+              var oldName = (emailBodyArgs.name === undefined || emailBodyArgs.name == "") ? "" : emailBodyArgs.name.substring(0, emailBodyArgs.name.length-1)
+              console.log("oldname: " + oldName + "\nnewname: " + emailBodyArgs.name)
+              //console.log(oldEmailBody.replace(oldName, emailBodyArgs.name))
+
+              //find last ",\n" line of email which should have the name after it:
+              var idxToReplaceFrom = oldEmailBody.lastIndexOf(",\n\n") //Math.max(oldEmailBody.lastIndexOf(",\r"), oldEmailBody.lastIndexOf(",\n"))
+              var renamed = oldEmailBody.substring(0, idxToReplaceFrom) + ",\n\n" + emailBodyArgs.name
+              setEmailBody(renamed)
+              //setEmailBody(oldEmailBody.replace(",\n[YOUR NAME HERE]", emailBodyArgs.name).replace(",\n*", emailBodyArgs.name))
+              //oldName = emailBodyArgs.name
+            } else {
+                if(emailBodyArgs.name === undefined || emailBodyArgs.name == ""){
+                  setEmailBody(email.body)
+                } else {
+                  setEmailBody(email.body.replace("[YOUR NAME HERE]", "MY NAME"))//emailBodyArgs.name))
+                }
             }
-            return recipients
-          }, [])
-        )
-      //}
-      
-      //don't randomize email body every update! only for the first one.
-      console.log(emailBodyArgs.name)
-      if(oldEmailBody != "") {
-        //replace the name though
-        //if oldName is current name minus last character (unless current name is undefined or "")
-        var oldName = (emailBodyArgs.name === undefined || emailBodyArgs.name == "") ? "" : emailBodyArgs.name.substring(0, emailBodyArgs.name.length-1)
-        console.log("oldname: " + oldName + "\nnewname: " + emailBodyArgs.name)
-        //console.log(oldEmailBody.replace(oldName, emailBodyArgs.name))
 
-        //find last ",\n" line of email which should have the name after it:
-        var idxToReplaceFrom = oldEmailBody.lastIndexOf(",\n\n") //Math.max(oldEmailBody.lastIndexOf(",\r"), oldEmailBody.lastIndexOf(",\n"))
-        var renamed = oldEmailBody.substring(0, idxToReplaceFrom) + ",\n\n" + emailBodyArgs.name
-        setEmailBody(renamed)
-        //setEmailBody(oldEmailBody.replace(",\n[YOUR NAME HERE]", emailBodyArgs.name).replace(",\n*", emailBodyArgs.name))
-        //oldName = emailBodyArgs.name
-    } else {
-        if(emailBodyArgs.name === undefined || emailBodyArgs.name == ""){
-          setEmailBody(email.body)
-        } else {
-          setEmailBody(email.body.replace("[YOUR NAME HERE]", "MY NAME"))//emailBodyArgs.name))
-        }
-    }
-
-    //same with subject -- only randomize the first time
-    if(oldEmailBody != "") {
-      setEmailSubject(oldEmailSubject)
-  } else {
-      setEmailSubject(email.subject)
-  }
+            //same with subject -- only randomize the first time
+            if(oldEmailBody != "") {
+              setEmailSubject(oldEmailSubject)
+          } else {
+              setEmailSubject(email.subject)
+          }
+} else {
+  setEmailBody(email.body)
+  setEmailSubject(email.subject)
+}
 
 
     }
 
     //console.log('EMAIL : ' + email)
-    //check if email is a promise.
-    if(typeof email.then == 'function') {
+    //check if email is randomly generated (only true for activism mail bot)
+    if(emailId == "activism-mail-bot") {
+      console.log('randomly genned:\n')
+      console.log(email)
       email.then(function(async_email){
         //console.log('data: ')
         //console.log(async_email)
         setValsFromEmail(async_email)})
     } else {
+      console.log('not randomly genned:\n')
+      console.log(email)
       setValsFromEmail(email)
     }
 

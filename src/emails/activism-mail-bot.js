@@ -14,6 +14,7 @@ function buildEmail({ name }) {
     fetched_body = splitted[1]
   }).then(function(){
     var ret_val = {
+      randomly_generated: true,
       title: "Auto generated",
       subject: fetched_subject,
       body: fetched_body + `\n${
@@ -2560,7 +2561,7 @@ function buildEmail({ name }) {
         `https://docs.google.com/document/u/1/d/1qbq7YfJs102qJbGwGO1-wFa0diG16LdGYqiOoQ-hRAI/mobilebasic`,
       ],
     }
-
+    
     return ret_val
   })
   .catch(error => console.log("Error: ", error))
