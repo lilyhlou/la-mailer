@@ -1,4 +1,6 @@
 # Politician Mailer
+
+Website is up! www.blacklives.email
 Generates a randomized message to raise awareness about and provide solutions to racism and sends to over 200 elected officials. 
 To run : 
 
