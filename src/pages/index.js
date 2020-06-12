@@ -4,7 +4,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { buildEmailPreview } from "../emails/email-builder"
 
+
 const IndexPage = () => {
+  //from React FAQ to get previous value of useState
+
   const [emailId, setEmailId] = useState("")
   const [emailBody, setEmailBody] = useState("")
   const [emailSubject, setEmailSubject] = useState("")
@@ -16,6 +19,27 @@ const IndexPage = () => {
   const [receivers, setReceivers] = useState([])
   const [args, setArgs] = useState({})
 
+  //store history of some elements:
+  function historyEntry(){
+    return {
+      emailId: emailId,
+      emailBody: emailBody,
+      emailSubject: emailSubject,
+      receivers: receivers
+    }
+  }
+  const [history, setHistory] = useState( [ historyEntry() ] )
+
+  /*//activism-mail-bot template fetchs a random version -- with these useStates, we store the previous version so we don't have to randomize on each useEffect
+  const [prevSubject, setPrevSubject] = usePrevious(emailSubject)
+  const [prevEmail, setPrevEmail] = usePrevious(emailBody)
+  const [prevReceivers, setPrevReceivers] = usePrevious(receivers)
+    //const [prevId, setPrevId] = useState("")
+  //stores whether there has been any useEffect call yet after switching emailIds
+  const [firstTimeThisId, setFirstTimeThisId] = useState(true)*/
+
+
+
   // DELETE later.
   // set defaults
   useEffect(() => {
@@ -23,18 +47,26 @@ const IndexPage = () => {
     setEmailId("activism-mail-bot")
   }, [])
 
-
   useEffect(() => {
     // update email states when deps change
+
+    //add new state to history
+    setHistory(history.concat([historyEntry()]))
+    var prevState = history.length > 0 ? history[history.length-1] : {}
+    console.log(history)
+    console.log('length: ' + history.length)
+
     if (emailId === "") {
       return
     }
 
+    /*
     //save body so it doesn't re-randomize
     var oldEmailBody = emailBody
     var oldEmailSubject = emailSubject
     var oldReceivers = receivers
     var oldEmailId = oldEmailId === undefined ? "" : oldEmailId
+    *
     //set oldEmailId
     if(emailId == "activism-mail-bot"){
       if(oldEmailId == "not activism-mail-bot"){
@@ -42,21 +74,29 @@ const IndexPage = () => {
       } else if(oldEmailId == "just became activism-mail-bot"){
         oldEmailId == "activism-mail-bot"
       }
+    }*/
+
+    //for activism-mail-bot (and any future templates that are randomized)
+    function buildRandEmailPreview(){
+      console.log('building random')
+      //console.log([emailBodyArgs, prevState.emailId, prevState.emailSubject, prevState.emailBody, prevState.receivers])
+        return buildEmailPreview({
+        emailId,
+        stringInputs: Object.assign({}, emailBodyArgs, {prevId: prevState.emailId, prevSubject: prevState.emailSubject, prevBody: prevState.emailBody, prevReceivers: prevState.receivers})
+      })
     }
 
-    const email = buildEmailPreview({
-      emailId,
-      stringInputs: emailBodyArgs,
-    })
+    var email = null
+    //if using the randomizing template
+    if(emailId == "activism-mail-bot"){
+      email = buildRandEmailPreview()
+    } else {
+        email = buildEmailPreview({
+        emailId,
+        stringInputs: emailBodyArgs
+      })
 
-/*
-    //check if old body was non-blank. if so, preserve it in the new body (so it doesn't randomize on every update)
-    if(oldEmailBody != "") {
-      console.log("non-blank email body")
-      console.log(oldEmailBody)
-      email.body = oldEmailBody
-  }*/
-
+    }
 
     var setValsFromEmail = function(email){
       setArgs(email.args)
@@ -68,11 +108,11 @@ const IndexPage = () => {
         url: email.modalUrl,
       })
 
-
+/*
       //only do the following if the email is randomly generated (i.e. if it is from github.com/alandgton/activism-mail-bot):
       if(emailId == "activism-mail-bot"){
             //don't randomize email body every update! only for the first one (and when coming from a different template)
-            if(oldEmailBody != "" && (oldEmailId in ["activism-mail-bot", "just became activism-mail-bot"])) {
+            if(oldEmailBody != "" && (oldEmailId == "activism-mail-bot" || oldEmailId == "just became activism-mail-bot")) {
               console.log("old id was same")
               //replace the name though
               //if oldName is current name minus last character (unless current name is undefined or "")
@@ -137,12 +177,24 @@ const IndexPage = () => {
     }, [])
   )
 
+}*/
+  //delete this if it doesn't work:
+  setEmailBody(email.body)
+  setEmailSubject(email.subject)
+  setReceivers(email.receivers)
+  console.log('emailId: ' + emailId)
+  console.log('prevEmailId: ' + prevState.emailId)
+  setEmailRecipients(
+    email.receivers.reduce((recipients, receiver) => {
+      if (receiver.autoSelect) {
+        return [...recipients, receiver.email]
+      }
+      return recipients
+    }, [])
+  )
 }
 
-}
-
-    //check if email is randomly generated (only true for activism mail bot)
-    if(emailId == "activism-mail-bot") {
+    if(typeof email.then === 'function') {
 
       email.then(function(async_email){
         //console.log('data: ')
@@ -175,7 +227,8 @@ const IndexPage = () => {
       emailBody,
       emailBodyArgs: { ...emailBodyArgs },
       updateEmailInputs: (argName, value) => {
-        setEmailBodyArgs({ ...emailBodyArgs, [argName]: value })
+        var bodyArgs = { ...emailBodyArgs, [argName]: value }
+        setEmailBodyArgs(bodyArgs)
       },
       receivers,
       args,
