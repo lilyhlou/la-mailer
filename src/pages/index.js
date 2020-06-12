@@ -90,9 +90,6 @@ const IndexPage = () => {
 
           //same with receivers (recievers are now randomized in activism-mail-bot.js)
           if(oldReceivers === undefined || oldReceivers.length == 0){
-            console.log('setting to receivers:')
-            console.log('receivers:')
-            console.log(email.receivers)
             setReceivers(email.receivers)
             setEmailRecipients(
               email.receivers.reduce((recipients, receiver) => {
@@ -103,9 +100,6 @@ const IndexPage = () => {
               }, [])
             )
           } else {
-            console.log('setting to oldReceivers:')
-            console.log('oldReceivers:')
-            console.log(oldReceivers)
             setReceivers(oldReceivers)
             setEmailRecipients(
               oldReceivers.reduce((recipients, receiver) => {
