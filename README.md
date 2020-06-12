@@ -1,6 +1,10 @@
 # Politician Mailer
-Generates a randomized message to raise awareness about and provide solutions to racism and sends to over 200 elected officials. 
-To run : 
+
+Website is up! www.blacklives.email
+
+Generates a message based on github.com/alandgton/activism-mail-bot (based on template from https://nomoreracistcops.github.io) and prepares an email in mail app to send to 500 elected officials. frontend taken from github.com/michaelnyu/la-mailer.
+
+To run source code : 
 
 1. Install NPM, Flask, Node.js, Gatsby, and Nginx 
 2. Run 'npm run build && npm run serve' in terminal

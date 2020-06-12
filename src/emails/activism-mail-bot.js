@@ -1,6 +1,29 @@
 function buildEmail({ name }) {
   var fetched_subject = "nothing here"
   var fetched_body = "nor here"
+
+  //function return n random elements from the array (from Bergi's answer on https://stackoverflow.com/questions/19269545/how-to-get-n-no-elements-randomly-from-an-array)
+  function get_random_n_elements(n,arr) {
+    var retval = new Array(n)
+    var len = arr.length
+    console.log('LENGTH: ' + len)
+    var taken = new Array(len)
+    if(n > len){
+      throw new RangeErr("more elements chosen than exist")
+    }
+
+    while(n--){
+      //copy an element from arr to retval
+      var copyIdx = Math.floor(Math.random() * len)
+      retval[n] = arr[copyIdx in taken ? taken[copyIdx] : copyIdx]
+      taken[copyIdx] = --len in taken ? taken[len] : len
+    }
+
+    console.log('LENGTH: ' + retval.length)
+    return retval
+
+  }
+
   return fetch("/p/genmsg"/*, {
     headers:{
         "accepts":"text/html"
@@ -14,7 +37,6 @@ function buildEmail({ name }) {
     fetched_body = splitted[1]
   }).then(function(){
     var ret_val = {
-      randomly_generated: true,
       title: "Auto generated",
       subject: fetched_subject,
       body: fetched_body + `\n${
@@ -27,7 +49,87 @@ function buildEmail({ name }) {
         },
       },
       directRecipient: ``,
-      receivers: [
+      receivers: get_random_n_elements(500, [
+        {
+        	label: "Birmingham",
+        	name: "Councilor Clinton P. Woods",
+        	email: "clinton.woods@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "Councilor Hunter Williams",
+        	email: "hunter.williams@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "Councilor Valerie A. Abbott",
+        	email: "valerie.abbott@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "Councilor William Parker",
+        	email: "william.parker@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "Councilor Darrell O' Quinn",
+        	email: "darrell.oquinn@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "Councilor Crystal N. Smitherman, Esq.",
+        	email: "crystal.smitherman@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "Councilor Wardine T. Alexander",
+        	email: "wardine.alexander@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "Councilor Steven W. Hoyt",
+        	email: "steven.hoyt@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "Councilor John R. Hilliard",
+        	email: "john.hilliard@birminghamal.gov",
+        },
+        {
+        	label: "Birmingham",
+        	name: "District Attorney Danny Carr",
+        	email: "DAinquiry@jccal.org",
+        },
+        {
+        	label: "Huntsville",
+        	name: "Mayor Tommy Battle",
+        	email: "Contact@HuntsvilleAL.gov",
+        },
+        {
+        	label: "Huntsville",
+        	name: "Council Member Devyn S. Keith",
+        	email: "Devyn.Keith@HuntsvilleAL.gov",
+        },
+        {
+        	label: "Huntsville",
+        	name: "Council Member Frances Akridge",
+        	email: "Frances.Akridge@HuntsvilleAL.gov",
+        },
+        {
+        	label: "Huntsville",
+        	name: "Council Member Jennie Robinson",
+        	email: "Jennie.Robinson@HuntsvilleAL.gov",
+        },
+        {
+        	label: "Huntsville",
+        	name: "Council Member Bill Kling",
+        	email: "Bill.Kling@HuntsvilleAL.gov",
+        },
+        {
+        	label: "Huntsville",
+        	name: "Council Member Will Culver",
+        	email: "Will.Culver@HuntsvilleAL.gov",
+        },
         {
         	label: "Phoenix",
         	name: "Mayor Kate Gallego",
@@ -699,6 +801,51 @@ function buildEmail({ name }) {
         	email: "stacie.gilmore@denvergov.org",
         },
         {
+        	label: "Colorado Springs",
+        	name: "Councilmember Don Knight",
+        	email: "Don.Knight@Coloradosprings.gov",
+        },
+        {
+        	label: "Colorado Springs",
+        	name: "Councilmember David Geislinger",
+        	email: "David.Geislinger@Coloradosprings.gov",
+        },
+        {
+        	label: "Colorado Springs",
+        	name: "Councilmember Richard Skorman",
+        	email: "Richard.Skorman@coloradosprings.gov",
+        },
+        {
+        	label: "Colorado Springs",
+        	name: "Councilmember Yolanda Avila",
+        	email: "Yolanda.Avila@coloradosprings.gov",
+        },
+        {
+        	label: "Colorado Springs",
+        	name: "Councilmember Jill Gaebler",
+        	email: "Jill.Gaebler@coloradosprings.gov",
+        },
+        {
+        	label: "Colorado Springs",
+        	name: "Councilmember Andres Pico",
+        	email: "Andy.Pico@Coloradosprings.gov",
+        },
+        {
+        	label: "Colorado Springs",
+        	name: "Councilmember Bill Murray",
+        	email: "bill.murray@coloradosprings.gov",
+        },
+        {
+        	label: "Colorado Springs",
+        	name: "Councilmember Tom Strand",
+        	email: "tom.strand@coloradosprings.gov",
+        },
+        {
+        	label: "Colorado Springs",
+        	name: "Councilmember Wayne Williams",
+        	email: "Wayne.williams@coloradosprings.gov",
+        },
+        {
         	label: "DC",
         	name: "Mayor Muriel Bowser",
         	email: "eom@dc.gov",
@@ -985,11 +1132,6 @@ function buildEmail({ name }) {
         },
         {
         	label: "Atlanta",
-        	name: "Councilmember J.P. Matzigkeit",
-        	email: "jpmatzigkeit@atlantaga.gov",
-        },
-        {
-        	label: "Atlanta",
         	name: "Councilmember Dustin Hills",
         	email: "drhillis@atlantaga.gov",
         },
@@ -1022,6 +1164,71 @@ function buildEmail({ name }) {
         	label: "Atlanta",
         	name: "Councilmember Andre Dickens",
         	email: "adickens@atlantaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Mayor Hardie Davis, Jr.",
+        	email: "mayordavis@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "City Administrator Jarvis Sims",
+        	email: "city.administrator@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner William Fennoy",
+        	email: "fennoy@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner Ben Hasan",
+        	email: "bhasan@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner Dennis Williams",
+        	email: "denniswilliams@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner Sean Frantom",
+        	email: "sfrantom@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner Mary Davis",
+        	email: "mfdavis@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner Brandon Garrett",
+        	email: "bgarrett@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner Sammie Sias",
+        	email: "ssias@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner J.P. Matzigkeit",
+        	email: "jpmatzigkeit@Augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner Marion Williams",
+        	email: "mfwilliams@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner Bobby Williams",
+        	email: "bobby.williams@augustaga.gov",
+        },
+        {
+        	label: "Augusta",
+        	name: "Commissioner John Clarke",
+        	email: "jclarke@augustaga.gov",
         },
         {
         	label: "Chicago",
@@ -1325,7 +1532,7 @@ function buildEmail({ name }) {
         },
         {
         	label: "Somerville",
-        	name: "Councilmember Jefferson Thomas Scott",
+        	name: "Councilmember Jefferson Thomas ('J.T.') Scott",
         	email: "jtscott@somervillema.gov",
         },
         {
@@ -1484,6 +1691,11 @@ function buildEmail({ name }) {
         	email: "Jeff.Messenger@house.mo.gov",
         },
         {
+        	label: "Jefferson County",
+        	name: "Representative Rob Vescovo",
+        	email: "Rob.Vescovo@house.mo.gov",
+        },
+        {
         	label: "Kansas City",
         	name: "Representative Keri Ingle",
         	email: "Keri.Ingle@house.mo.gov",
@@ -1497,6 +1709,26 @@ function buildEmail({ name }) {
         	label: "Kansas City",
         	name: "Representative Barbara Washington",
         	email: "Barbara.Washington@house.mo.gov",
+        },
+        {
+        	label: "Pulaski County",
+        	name: "Representative Steve Lynch",
+        	email: "Steve.Lynch@house.mo.gov",
+        },
+        {
+        	label: "Springfield",
+        	name: "Representative Crystal Quade",
+        	email: "Crystal.Quade@house.mo.gov",
+        },
+        {
+        	label: "Springfield",
+        	name: "Representative Elijah Haah",
+        	email: "Elijah.Haahr@house.mo.gov",
+        },
+        {
+        	label: "St. Charles County",
+        	name: "Representative John Wiemann",
+        	email: "John.Wiemann@house.mo.gov",
         },
         {
         	label: "St. Louis",
@@ -2425,7 +2657,7 @@ function buildEmail({ name }) {
         },
         {
         	label: "Burlington",
-        	name: "Councilmember William Mason",
+        	name: "Councilmember William 'Chip' Mason",
         	email: "cmason@burlingtonvt.gov",
         },
         {
@@ -2529,14 +2761,15 @@ function buildEmail({ name }) {
         	email: "nnowman@cityoftacoma.org",
         },
 
-      ],
+
+      ]),
       modalBody: `Description`,
       modalTitle: `Emailing our elected officials for specific changes`,
       modalUrl: [
         `https://docs.google.com/document/u/1/d/1qbq7YfJs102qJbGwGO1-wFa0diG16LdGYqiOoQ-hRAI/mobilebasic`,
       ],
     }
-    
+
     return ret_val
   })
   .catch(error => console.log("Error: ", error))

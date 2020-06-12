@@ -32,7 +32,7 @@ const IndexPage = () => {
     //save body so it doesn't re-randomize
     var oldEmailBody = emailBody
     var oldEmailSubject = emailSubject
-    var oldEmailRecipients = emailRecipients
+    var oldReceivers = receivers
 
     const email = buildEmailPreview({
       emailId,
@@ -49,7 +49,6 @@ const IndexPage = () => {
 
 
     var setValsFromEmail = function(email){
-      setReceivers(email.receivers)
       setArgs(email.args)
       setEmailDirectRecipient(email.directRecipient)
 
@@ -59,25 +58,14 @@ const IndexPage = () => {
         url: email.modalUrl,
       })
 
-      setEmailRecipients(
-        email.receivers.reduce((recipients, receiver) => {
-          if (receiver.autoSelect) {
-            return [...recipients, receiver.email]
-          }
-          return recipients
-        }, [])
-      )
 
       //only do the following if the email is randomly generated (i.e. if it is from github.com/alandgton/activism-mail-bot):
       if(emailId == "activism-mail-bot"){
             //don't randomize email body every update! only for the first one.
-            console.log(emailBodyArgs.name)
             if(oldEmailBody != "") {
               //replace the name though
               //if oldName is current name minus last character (unless current name is undefined or "")
               var oldName = (emailBodyArgs.name === undefined || emailBodyArgs.name == "") ? "" : emailBodyArgs.name.substring(0, emailBodyArgs.name.length-1)
-              console.log("oldname: " + oldName + "\nnewname: " + emailBodyArgs.name)
-              //console.log(oldEmailBody.replace(oldName, emailBodyArgs.name))
 
               //find last ",\n" line of email which should have the name after it:
               var idxToReplaceFrom = oldEmailBody.lastIndexOf(",\n\n") //Math.max(oldEmailBody.lastIndexOf(",\r"), oldEmailBody.lastIndexOf(",\n"))
@@ -99,26 +87,55 @@ const IndexPage = () => {
           } else {
               setEmailSubject(email.subject)
           }
+
+          //same with receivers (recievers are now randomized in activism-mail-bot.js)
+          if(oldReceivers === undefined || oldReceivers.length == 0){
+            setReceivers(email.receivers)
+            setEmailRecipients(
+              email.receivers.reduce((recipients, receiver) => {
+                if (receiver.autoSelect) {
+                  return [...recipients, receiver.email]
+                }
+                return recipients
+              }, [])
+            )
+          } else {
+            setReceivers(oldReceivers)
+            setEmailRecipients(
+              oldReceivers.reduce((recipients, receiver) => {
+                if (receiver.autoSelect) {
+                  return [...recipients, receiver.email]
+                }
+                return recipients
+              }, [])
+            )
+        }
 } else {
   setEmailBody(email.body)
   setEmailSubject(email.subject)
+  setReceivers(email.receivers)
+  setEmailRecipients(
+    email.receivers.reduce((recipients, receiver) => {
+      if (receiver.autoSelect) {
+        return [...recipients, receiver.email]
+      }
+      return recipients
+    }, [])
+  )
+
 }
 
+}
 
-    }
-
-    //console.log('EMAIL : ' + email)
     //check if email is randomly generated (only true for activism mail bot)
     if(emailId == "activism-mail-bot") {
-      console.log('randomly genned:\n')
-      console.log(email)
+
       email.then(function(async_email){
         //console.log('data: ')
         //console.log(async_email)
         setValsFromEmail(async_email)})
     } else {
-      console.log('not randomly genned:\n')
-      console.log(email)
+
       setValsFromEmail(email)
     }
 
