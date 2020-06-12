@@ -23,6 +23,7 @@ const IndexPage = () => {
     setEmailId("activism-mail-bot")
   }, [])
 
+
   useEffect(() => {
     // update email states when deps change
     if (emailId === "") {
@@ -33,6 +34,15 @@ const IndexPage = () => {
     var oldEmailBody = emailBody
     var oldEmailSubject = emailSubject
     var oldReceivers = receivers
+    var oldEmailId = oldEmailId === undefined ? "" : oldEmailId
+    //set oldEmailId
+    if(emailId == "activism-mail-bot"){
+      if(oldEmailId == "not activism-mail-bot"){
+        oldEmailId = "just became activism-mail-bot"
+      } else if(oldEmailId == "just became activism-mail-bot"){
+        oldEmailId == "activism-mail-bot"
+      }
+    }
 
     const email = buildEmailPreview({
       emailId,
@@ -61,8 +71,9 @@ const IndexPage = () => {
 
       //only do the following if the email is randomly generated (i.e. if it is from github.com/alandgton/activism-mail-bot):
       if(emailId == "activism-mail-bot"){
-            //don't randomize email body every update! only for the first one.
-            if(oldEmailBody != "") {
+            //don't randomize email body every update! only for the first one (and when coming from a different template)
+            if(oldEmailBody != "" && (oldEmailId in ["activism-mail-bot", "just became activism-mail-bot"])) {
+              console.log("old id was same")
               //replace the name though
               //if oldName is current name minus last character (unless current name is undefined or "")
               var oldName = (emailBodyArgs.name === undefined || emailBodyArgs.name == "") ? "" : emailBodyArgs.name.substring(0, emailBodyArgs.name.length-1)
@@ -82,14 +93,14 @@ const IndexPage = () => {
             }
 
             //same with subject -- only randomize the first time
-            if(oldEmailBody != "") {
+            if(oldEmailBody != "" || oldEmailId != "activism-mail-bot") {
               setEmailSubject(oldEmailSubject)
           } else {
               setEmailSubject(email.subject)
           }
 
           //same with receivers (recievers are now randomized in activism-mail-bot.js)
-          if(oldReceivers === undefined || oldReceivers.length == 0){
+          if(oldReceivers === undefined || oldReceivers.length == 0 || oldEmailId != "activism-mail-bot"){
             setReceivers(email.receivers)
             setEmailRecipients(
               email.receivers.reduce((recipients, receiver) => {
@@ -111,6 +122,9 @@ const IndexPage = () => {
             )
         }
 } else {
+  console.log("oldEmailId not the same")
+  oldEmailId = "not activism-mail-bot"
+  console.log(oldEmailId)
   setEmailBody(email.body)
   setEmailSubject(email.subject)
   setReceivers(email.receivers)

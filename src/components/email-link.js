@@ -20,7 +20,6 @@ const EmailLink = ({
   stretch,
   style,
 }) => {
-  console.log('isMobile: '+ isMobile)
   let href = `mailto:${directRecipient}?`
 
   if (recipients.length > 1) {
