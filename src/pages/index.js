@@ -195,9 +195,27 @@ const IndexPage = () => {
 }
 
     if(typeof email.then === 'function') {
-      console.log('twas funct')
+      //add loading screen, then update values when async return happens
+      var loadingEmail = {
+        title: "Loading",
+        subject: "Loading",
+        body: <img src='loading.gif' />,
+        args: {
+          name: {
+            label: "Enter your name:",
+            inputType: "text",
+          },
+        },
+        directRecipient: ``,
+        receivers: [],
+        modalBody: `Description`,
+        modalTitle: `Emailing our elected officials for specific changes`,
+        modalUrl: [``]
+      }
+      setValsFromEmail(loadingEmail)
+
       email.then(function(async_email){
-        //add loading screen:
+
         //add a new history entry once the things load! otherwise, it won't be registered in time.
         setHistory(history.concat([{
           emailId: emailId, //this is not updated later by the fetch like the other fields in this object are

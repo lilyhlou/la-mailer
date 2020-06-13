@@ -28,7 +28,7 @@ const EmailLink = ({
   }
 
   href += `&subject=${subject}`
-  href += `&body=${body.replace(/\n\n/g, "%0A%0A")}`
+  href += typeof body === "string" ? `&body=${body.replace(/\n\n/g, "%0A%0A")}` : "Invalid email" //sometimes body is a loading icon not a string
 
   //normal isMobile doesn't seem to work so making a different version -- a bit hacky but should do the trick
   var isMobile2 = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
