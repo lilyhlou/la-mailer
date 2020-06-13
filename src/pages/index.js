@@ -54,7 +54,6 @@ const IndexPage = () => {
     setHistory(history.concat([historyEntry()]))
     var prevState = history.length > 0 ? history[history.length-1] : {}
     console.log(history)
-    console.log('length: ' + history.length)
 
     if (emailId === "") {
       return
@@ -99,6 +98,7 @@ const IndexPage = () => {
     }
 
     var setValsFromEmail = function(email){
+      console.log('setValsFromEmail called with email: ' + email)
       setArgs(email.args)
       setEmailDirectRecipient(email.directRecipient)
 
@@ -195,13 +195,25 @@ const IndexPage = () => {
 }
 
     if(typeof email.then === 'function') {
-
+      console.log('twas funct')
       email.then(function(async_email){
+        //add loading screen:
+        //add a new history entry once the things load! otherwise, it won't be registered in time.
+        setHistory(history.concat([{
+          emailId: emailId, //this is not updated later by the fetch like the other fields in this object are
+          emailBody: async_email.body,
+          emailSubject: async_email.subject,
+          receivers: async_email.receivers
+        }]))
+        //var prevState = history.length > 0 ? history[history.length-1] : {}
+
+        console.log('was async email:\n email: ')
+        console.log(async_email)
         //console.log('data: ')
         //console.log(async_email)
         setValsFromEmail(async_email)})
     } else {
-
+      console.log('twas nonfunct')
       setValsFromEmail(email)
     }
 

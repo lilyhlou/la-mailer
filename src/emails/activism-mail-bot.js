@@ -59,6 +59,7 @@ function buildEmail({ name, prevSubject, prevBody, prevReceivers, prevId }) {
     }
 }*/).then(response => response.text())
   .then(function(data){
+    console.log('randomizzzzzze!')
     //perhaps this is hacky but it's easy to just separate subject and message by a character
     var splitAt = ";"
     var splitted = data.split(splitAt)
