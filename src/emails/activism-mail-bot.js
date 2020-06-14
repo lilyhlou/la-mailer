@@ -1,4 +1,4 @@
-function buildEmail({ name }) {
+function buildEmail({ name, prevSubject, prevBody, prevReceivers, prevId }) {
   var fetched_subject = "nothing here"
   var fetched_body = "nor here"
 
@@ -24,12 +24,42 @@ function buildEmail({ name }) {
 
   }
 
-  return fetch("/p/genmsg"/*, {
+  var savedEmailExists = prevId == "activism-mail-bot" && prevSubject !== ""
+  if(savedEmailExists){
+    console.log("saved Email exists and prevId was activism mail bot: " + prevId)
+    //keep everything the same but just update the name:
+
+    //find last ",\n" line of email which should have the name after it:
+    var idxToReplaceFrom = prevBody.lastIndexOf(",\n\n")
+    var bodyWithoutName = prevBody.substring(0, idxToReplaceFrom)
+    return {
+      title: "Auto generated",
+      subject: prevSubject,
+      body: bodyWithoutName + `,\n\n${
+        name || "[YOUR NAME HERE]"
+      }`,
+      args: {
+        name: {
+          label: "Enter your name:",
+          inputType: "text",
+        },
+      },
+      directRecipient: ``,
+      receivers: prevReceivers,
+      modalBody: `Description`,
+      modalTitle: `Emailing our elected officials for specific changes`,
+      modalUrl: [
+        `https://docs.google.com/document/u/1/d/1qbq7YfJs102qJbGwGO1-wFa0diG16LdGYqiOoQ-hRAI/mobilebasic`,
+      ],
+    }
+  } else{
+    return fetch("/p/genmsg"/*, {
     headers:{
         "accepts":"text/html"
     }
 }*/).then(response => response.text())
   .then(function(data){
+    console.log('randomizzzzzze!')
     //perhaps this is hacky but it's easy to just separate subject and message by a character
     var splitAt = ";"
     var splitted = data.split(splitAt)
@@ -2774,6 +2804,7 @@ function buildEmail({ name }) {
   })
   .catch(error => console.log("Error: ", error))
 
+}
 }
 
 export default buildEmail
